@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './GraphicPicker.css';
-import { uploadImage } from '../../../../utils/uploadImage';
-import { convertAwsLink } from '../../../../utils/convertAwsLink';
+import { uploadImage } from '../../../../utils/helpers/uploadImage';
+import { convertAwsLink } from '../../../../utils/helpers/convertAwsLink';
 import CurrentGraphics from './CurrentGraphics';
 import {
   LeftInterfaceContainer,

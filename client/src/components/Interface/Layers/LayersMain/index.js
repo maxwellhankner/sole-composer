@@ -1,5 +1,5 @@
 import React from 'react';
-import { handleConvertPartName } from '../../../../utils/convertPartNames';
+import { handleConvertPartName } from '../../../../utils/helpers/convertPartNames';
 import { FaChevronUp, FaChevronDown, FaPlus, FaTrash } from 'react-icons/fa';
 import PartSelector from './PartSelector';
 import {

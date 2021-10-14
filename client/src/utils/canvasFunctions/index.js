@@ -1,5 +1,7 @@
+// Setup
 import { setup } from './setup/setup';
 
+// Create
 import {
   createTexture,
   createCanvas,
@@ -12,16 +14,18 @@ import { createGraphicLayerCanvas } from './create/createGraphicLayerCanvas';
 import { createMaskLayerCanvas } from './create/createMaskLayerCanvas';
 import { createOverlayLayerCanvas } from './create/createOverlayLayerCanvas';
 
+// Convert
 import {
   designObjectToCanvasObject,
   overlayCanvasObjectToTextureCanvas,
   updateGraphicVisualCanvas,
 } from './create/initialFunctions';
 
+import { canvasObjectToTextureCanvas } from './update/canvasObjectToTextureCanvas';
+
+// Manager
 import { partChangeManager } from './update/partChangeManager';
 import { overlayChangeManager } from './update/overlayChangeManager';
-
-import { canvasObjectToTextureCanvas } from './update/canvasObjectToTextureCanvas';
 
 export {
   setup,

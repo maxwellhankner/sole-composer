@@ -11,10 +11,10 @@ import {
   InterfaceTitle,
 } from '../../designerui';
 import { Link } from 'react-router-dom';
-import { uploadImage } from '../../../utils/uploadImage';
-import { takeScreenshot } from '../../../utils/takeScreenshot';
-import { convertAwsLink } from '../../../utils/convertAwsLink';
-import { designFetch } from '../../../utils/fetchHelpers';
+import { uploadImage } from '../../../utils/helpers/uploadImage';
+import { takeScreenshot } from '../../../utils/helpers/takeScreenshot';
+import { convertAwsLink } from '../../../utils/helpers/convertAwsLink';
+import { designFetch } from '../../../utils/helpers/fetchHelpers';
 import { FaPen } from 'react-icons/fa';
 import { LoadingSpinner } from '../../designerui';
 
