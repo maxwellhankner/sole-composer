@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import UserProvider from '../../UserProvider';
-import Landing from '../Landing';
-import Designer from '../Designer';
-import Login from '../Login';
-import Profile from '../Profile';
-import NoPage from '../NoPage';
+import UserProvider from '../UserProvider';
+import Landing from '../containers/Landing';
+import Designer from '../containers/Designer';
+import Login from '../containers/Login';
+import Profile from '../containers/Profile';
+import NoPage from '../containers/NoPage';
 import { AppContainer } from './styledComponents';
 import 'sanitize.css';
 
