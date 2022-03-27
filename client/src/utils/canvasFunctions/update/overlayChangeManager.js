@@ -110,9 +110,8 @@ export const overlayChangeManager = ({
     addLayerToOverlayCanvasObject({
       overlayCanvasObject,
       partName,
-      layerObject: tempDesign.outlineData.overlays[partName][currentShoe].slice(
-        -1
-      )[0],
+      layerObject:
+        tempDesign.outlineData.overlays[partName][currentShoe].slice(-1)[0],
       overlayCanvas,
       texture,
       graphicVisualCanvas,

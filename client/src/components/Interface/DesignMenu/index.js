@@ -136,7 +136,12 @@ function DesignMenu({
         </InterfaceTitleAndIcon>
 
         <InterfaceDoubleButtons>
-          <InterfaceButtonBox onClick={() => setCameraReset(true)}>
+          <InterfaceButtonBox
+            onClick={() => {
+              console.log('design', design);
+              setCameraReset(true);
+            }}
+          >
             <InterfaceButton active>Reset Camera</InterfaceButton>
           </InterfaceButtonBox>
           {canSave && userData ? (
