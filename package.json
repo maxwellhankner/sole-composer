@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "engines": {
+    "node": "16.20.2"
+  },
   "dependencies": {
     "aws-sdk": "^2.1007.0",
     "concurrently": "^6.3.0",
