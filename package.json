@@ -2,7 +2,7 @@
   "name": "sole-composer",
   "version": "1.0.0",
   "description": "",
-  "main": "server/index.js",
+  "main": "index.js",
   "dependencies": {
     "aws-sdk": "^2.1007.0",
     "concurrently": "^6.3.0",
