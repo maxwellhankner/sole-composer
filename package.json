@@ -1,7 +1,7 @@
 {
   "name": "sole-composer",
   "version": "1.0.0",
-  "description": "",
+  "description": "backend for sole-composer",
   "main": "index.js",
   "engines": {
     "node": "16.20.2"
