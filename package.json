@@ -9,12 +9,12 @@
   "dependencies": {
     "aws-sdk": "^2.1007.0",
     "concurrently": "^6.3.0",
-    "cookie-parser": "^1.4.5",
+    "cookie-parser": "^1.4.6",
     "cookie-session": "^1.4.0",
     "cors": "^2.8.5",
     "dotenv": "^8.6.0",
-    "express": "^4.17.1",
-    "express-session": "^1.17.2",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
     "is-svg": "^4.3.1",
     "mongoose": "^5.13.11",
     "mpath": ">=0.8.4",
@@ -29,10 +29,9 @@
   },
   "scripts": {
     "server": "cd server && nodemon index.js",
-    "client": "npm start --prefix client",
-    "client2": "cd client && npm run start",
+    "client": "cd client && npm run start",
     "build": "cd client && npm run build",
-    "dev": "concurrently -n 'server,client' -c '#3c863a,#61dbfb' \"npm run server\" \"npm run client2\""
+    "dev": "concurrently -n 'server,client' -c '#3c863a,#61dbfb' \"npm run server\" \"npm run client\""
   },
   "author": "",
   "license": "ISC"
