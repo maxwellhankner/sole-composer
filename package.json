@@ -28,7 +28,6 @@
     "request": "^2.88.2"
   },
   "scripts": {
-    "start": "node server/index.js",
     "server": "cd server && nodemon index.js",
     "client": "npm start --prefix client",
     "client2": "cd client && npm run start",
