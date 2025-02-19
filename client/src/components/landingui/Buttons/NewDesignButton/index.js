@@ -1,12 +1,12 @@
 import React from 'react';
 import { NewDesignButtonStyled } from './styledComponents';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function NewDesignButton() {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleClick = () => {
-    history.push(`/designer`);
+    navigate(`/designer`);
   };
   return (
     <NewDesignButtonStyled onClick={() => handleClick()}>

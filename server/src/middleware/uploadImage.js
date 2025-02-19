@@ -2,11 +2,20 @@ const aws = require('aws-sdk');
 const multer = require('multer');
 const multerS3 = require('multer-s3');
 
-const s3 = new aws.S3({
+// Configure AWS
+aws.config.update({
   secretAccessKey: process.env.S3_ACCESS_SECRET,
   accessKeyId: process.env.S3_ACCESS_KEY,
-  region: 'us-east-2',
+  region: 'us-east-2'
 });
+
+console.log('AWS Config:', {
+  hasSecretKey: !!process.env.S3_ACCESS_SECRET,
+  hasAccessKey: !!process.env.S3_ACCESS_KEY,
+  region: 'us-east-2'
+});
+
+const s3 = new aws.S3();
 
 const fileFilter = (req, file, cb) => {
   if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {

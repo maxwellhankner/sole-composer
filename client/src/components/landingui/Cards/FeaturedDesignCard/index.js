@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {
   FeaturedDesignCardContainer,
   FeaturedDesignCardImage,
@@ -11,10 +11,10 @@ import {
 function FeaturedDesignCard({ props }) {
   const { _id, title, configId, author, screenshot } = props;
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleClick = () => {
-    history.push(`/designer/${_id}`);
+    navigate(`/designer/${_id}`);
   };
 
   return (

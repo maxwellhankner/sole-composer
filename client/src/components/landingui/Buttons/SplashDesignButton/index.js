@@ -1,12 +1,12 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { SplashButton } from './styledComponents';
 
 function SplashDesignButton() {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleClick = () => {
-    history.push(`/designer`);
+    navigate(`/designer`);
   };
   return (
     <SplashButton onClick={() => handleClick()}>

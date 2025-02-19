@@ -4,6 +4,13 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config();
 
+// Debug environment variables
+console.log('Environment variables loaded:');
+console.log('NODE_ENV:', process.env.NODE_ENV);
+console.log('ATLAS_URI exists:', !!process.env.ATLAS_URI);
+console.log('S3_ACCESS_KEY exists:', !!process.env.S3_ACCESS_KEY);
+console.log('S3_ACCESS_SECRET exists:', !!process.env.S3_ACCESS_SECRET);
+
 const passport = require('passport');
 require('./src/middleware/googleAuth');
 // const passport = require('./src/middleware/googleAuth');

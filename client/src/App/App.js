@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import UserProvider from '../UserProvider';
 import Landing from '../containers/Landing';
 import Designer from '../containers/Designer';
@@ -14,14 +14,14 @@ function App() {
     <AppContainer>
       <Router>
         <UserProvider>
-          <Switch>
-            <Route exact path="/" component={Landing} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/profile" component={Profile} />
-            <Route exact path="/designer" component={Designer} />
-            <Route exact path="/designer/:id" component={Designer} />
-            <Route path="*" component={NoPage} />
-          </Switch>
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/designer" element={<Designer />} />
+            <Route path="/designer/:id" element={<Designer />} />
+            <Route path="*" element={<NoPage />} />
+          </Routes>
         </UserProvider>
       </Router>
     </AppContainer>
