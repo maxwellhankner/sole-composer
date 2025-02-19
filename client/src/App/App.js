@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, createRoutesFromElements } from 'react-router-dom';
+import { UNSAFE_DataRouterContext, UNSAFE_DataRouterStateContext } from 'react-router-dom';
 import UserProvider from '../UserProvider';
 import Landing from '../containers/Landing';
 import Designer from '../containers/Designer';
@@ -12,7 +13,7 @@ import 'sanitize.css';
 function App() {
   return (
     <AppContainer>
-      <Router>
+      <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <UserProvider>
           <Routes>
             <Route path="/" element={<Landing />} />
