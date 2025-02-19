@@ -1,14 +1,23 @@
 {
   "name": "sole-composer",
   "version": "1.0.0",
-  "description": "backend for sole-composer",
-  "main": "index.js",
+  "description": "Backend for Sole Composer - A 3D shoe design application",
+  "main": "server/index.js",
   "engines": {
-    "node": "16.20.2"
+    "node": "16.20.2",
+    "npm": ">=8.0.0"
+  },
+  "scripts": {
+    "start": "cd server && NODE_ENV=production node index.js",
+    "dev": "concurrently -n 'server,client' -c '#3c863a,#61dbfb' \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "cd server && NODE_ENV=development nodemon --inspect index.js",
+    "dev:client": "cd client && npm run start",
+    "build": "cd client && npm run build",
+    "clean": "rm -rf node_modules client/node_modules",
+    "setup": "npm install && cd client && npm install"
   },
   "dependencies": {
     "aws-sdk": "^2.1007.0",
-    "concurrently": "^6.3.0",
     "cookie-parser": "^1.4.5",
     "cookie-session": "^1.4.0",
     "cors": "^2.8.5",
@@ -17,26 +26,22 @@
     "express-session": "^1.17.2",
     "is-svg": "^4.3.1",
     "mongoose": "^5.13.11",
-    "mpath": ">=0.8.4",
     "multer": "^1.4.3",
     "multer-s3": "^2.9.0",
     "parse": "^3.3.1",
     "passport": "^0.4.1",
     "passport-google-oauth": "^2.0.0",
-    "passport-oauth2": ">=1.6.1",
     "path": "^0.12.7",
     "request": "^2.88.2"
   },
-  "scripts": {
-    "server": "cd server && NODE_ENV=development nodemon --inspect index.js",
-    "client": "npm start --prefix client",
-    "client2": "cd client && npm run start",
-    "build": "cd client && npm run build",
-    "dev": "concurrently -n 'server,client' -c '#3c863a,#61dbfb' \"npm run server\" \"npm run client2\""
-  },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
+    "concurrently": "^6.3.0",
     "nodemon": "^3.1.9"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maxwellhankner/sole-composer"
+  },
+  "author": "Maxwell Hankner",
+  "license": "ISC"
 }
