@@ -40,7 +40,7 @@ app.use(passport.session());
 
 // Serve static files in production
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../client/build')));
+  app.use(express.static(path.join(__dirname, '../client/dist')));
 } else {
   // In development, allow CORS for Vite's dev server
   app.use(cors({
@@ -92,7 +92,7 @@ app.get(
 // Handle client-side routing
 if (process.env.NODE_ENV === 'production') {
   app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+    res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
   });
 } else {
   // In development, only handle API routes, let Vite handle the rest
