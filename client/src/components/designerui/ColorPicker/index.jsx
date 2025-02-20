@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import { CustomPicker } from 'react-color';
 import CurrentColors from './CurrentColors';
 import {
@@ -24,6 +25,10 @@ import {
   InterfaceButtonBox,
 } from '../';
 
+const ColorPickerWrapper = styled.div`
+  /* Wrapper to prevent props from being passed to DOM */
+`;
+
 export const CustomColor = ({
   hex,
   hsl,
@@ -33,7 +38,8 @@ export const CustomColor = ({
   colorsArray,
 }) => {
   return (
-    <CustomColorContainer>
+    <ColorPickerWrapper>
+      <CustomColorContainer>
       <InterfaceSingleButtons>
         <InterfaceButtonBox>
           <HueContainer>
@@ -65,7 +71,7 @@ export const CustomColor = ({
       <InterfaceDoubleButtons>
         <InterfaceButtonBox>
           <InterfaceButton
-            active
+            $active
             onClick={() =>
               handleColorChange(
                 '#' +
@@ -90,7 +96,8 @@ export const CustomColor = ({
           </CustomColorInputContainer>
         </InterfaceButtonBox>
       </InterfaceDoubleButtons>
-    </CustomColorContainer>
+      </CustomColorContainer>
+    </ColorPickerWrapper>
   );
 };
 

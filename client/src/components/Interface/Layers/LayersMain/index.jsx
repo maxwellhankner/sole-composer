@@ -91,7 +91,7 @@ function LayersMain({ props }) {
         <LayersMainControlsRight>
           <InterfaceIconButtonBox>
             <InterfaceIconButton
-              active={
+              $active={
                 currentLayer !== -1 &&
                 allLayers?.[currentLayer]?.type !== 'overlay'
               }
@@ -102,7 +102,7 @@ function LayersMain({ props }) {
           </InterfaceIconButtonBox>
           <InterfaceIconButtonBox>
             <InterfaceIconButton
-              active={
+              $active={
                 currentLayer !== -1 && numberOfLayers - 1 !== currentLayer
               }
               onClick={() => moveLayer(currentLayer, 1)}
@@ -112,7 +112,7 @@ function LayersMain({ props }) {
           </InterfaceIconButtonBox>
           <InterfaceIconButtonBox>
             <InterfaceIconButton
-              active={currentLayer !== -1 && 0 !== currentLayer}
+              $active={currentLayer !== -1 && 0 !== currentLayer}
               onClick={() => moveLayer(currentLayer, -1)}
             >
               <FaChevronDown />
@@ -120,7 +120,7 @@ function LayersMain({ props }) {
           </InterfaceIconButtonBox>
           <InterfaceIconButtonBox>
             <InterfaceIconButton
-              active
+              $active
               onClick={() => setLayersView('AddLayerType')}
             >
               <FaPlus />
@@ -186,7 +186,7 @@ function LayersMain({ props }) {
                     />
                   </LayerItemLeft>
                 )}
-                <LayerItemRight active={i === currentLayer}>
+                <LayerItemRight $active={i === currentLayer}>
                   <LayerItemRightTitle>
                     {layer.type === 'overlay'
                       ? handleConvertPartName(layer.source).toLowerCase()

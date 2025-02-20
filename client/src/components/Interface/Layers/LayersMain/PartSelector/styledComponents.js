@@ -59,7 +59,7 @@ export const PartSelectorButton = styled.button`
   align-items: center;
 
   svg {
-    color: ${(props) => (props.active ? '#ffffff' : '#343434')};
+    color: ${(props) => (props.$active ? '#ffffff' : '#343434')};
   }
 
   &:focus {

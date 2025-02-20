@@ -118,7 +118,7 @@ function DesignMenu({
           </InterfaceTitleBox>
           <InterfaceIconButtonBox>
             <InterfaceIconButton
-              active
+              $active
               onClick={() => handleViewChange('ChangeDesignName')}
             >
               <FaPen />
@@ -128,7 +128,7 @@ function DesignMenu({
 
         <InterfaceDoubleButtons>
           <InterfaceButtonBox onClick={() => setCameraReset(true)}>
-            <InterfaceButton active>Reset Camera</InterfaceButton>
+            <InterfaceButton $active>Reset Camera</InterfaceButton>
           </InterfaceButtonBox>
           {canSave && userData ? (
             <InterfaceButtonBox
@@ -136,7 +136,7 @@ function DesignMenu({
                 handleSaveDesign();
               }}
             >
-              <InterfaceButton active>Save</InterfaceButton>
+              <InterfaceButton $active>Save</InterfaceButton>
             </InterfaceButtonBox>
           ) : (
             <InterfaceButtonBox>
@@ -149,7 +149,7 @@ function DesignMenu({
                 handleDeleteDesign();
               }}
             >
-              <InterfaceButton active>Delete</InterfaceButton>
+              <InterfaceButton $active>Delete</InterfaceButton>
             </InterfaceButtonBox>
           ) : (
             <InterfaceButtonBox>
@@ -159,7 +159,7 @@ function DesignMenu({
 
           <InterfaceButtonBox>
             <Link to="/">
-              <InterfaceButton active>Exit</InterfaceButton>
+              <InterfaceButton $active>Exit</InterfaceButton>
             </Link>
           </InterfaceButtonBox>
         </InterfaceDoubleButtons>

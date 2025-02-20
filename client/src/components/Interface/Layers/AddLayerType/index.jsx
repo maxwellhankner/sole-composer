@@ -17,7 +17,7 @@ function AddLayerType({ props }) {
           <InterfaceButtonBox key={i}>
             {type === 'Mask' ? (
               <InterfaceButton
-                active
+                $active
                 onClick={() => {
                   setLayersView('MaskTypes');
                 }}
@@ -26,7 +26,7 @@ function AddLayerType({ props }) {
               </InterfaceButton>
             ) : type === 'Graphic' ? (
               <InterfaceButton
-                active
+                $active
                 onClick={() => {
                   setLayersView('GraphicPicker');
                 }}
@@ -35,7 +35,7 @@ function AddLayerType({ props }) {
               </InterfaceButton>
             ) : (
               <InterfaceButton
-                active
+                $active
                 onClick={() => {
                   handleAddLayer(type);
                   setLayersView('LayersMain');
@@ -47,7 +47,7 @@ function AddLayerType({ props }) {
           </InterfaceButtonBox>
         ))}
         <InterfaceButtonBox>
-          <InterfaceButton active onClick={() => setLayersView('LayersMain')}>
+          <InterfaceButton $active onClick={() => setLayersView('LayersMain')}>
             Cancel
           </InterfaceButton>
         </InterfaceButtonBox>

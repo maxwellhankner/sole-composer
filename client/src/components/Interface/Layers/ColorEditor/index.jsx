@@ -135,7 +135,7 @@ function ColorEditor({ props }) {
         </InterfaceTitleBox>
         <InterfaceIconButtonBox>
           <InterfaceIconButton
-            active
+            $active
             onClick={() => setLayersView('LayersMain')}
           >
             <FaCheck />

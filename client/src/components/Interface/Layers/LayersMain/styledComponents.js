@@ -84,11 +84,11 @@ export const LayerItemRight = styled.div`
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  background-color: ${(props) => (props.active ? '#EEEEEE' : '#212121')};
-  color: ${(props) => (props.active ? '#000000' : '#EEEEEE')};
+  background-color: ${(props) => (props.$active ? '#EEEEEE' : '#212121')};
+  color: ${(props) => (props.$active ? '#000000' : '#EEEEEE')};
   justify-content: center;
   border: ${(props) =>
-    props.active ? '1px solid #EEEEEE' : '1px solid #343434'};
+    props.$active ? '1px solid #EEEEEE' : '1px solid #343434'};
   border-radius: 4px;
 `;
 

@@ -26,10 +26,10 @@ export const PartsScrollBox = styled.div`
 
 export const PartButton = styled.button`
   box-sizing: border-box;
-  color: ${(props) => (props.active ? '#ffffff' : '#999999')};
-  background-color: ${(props) => (props.active ? '#212121' : '#000000')};
+  color: ${(props) => (props.$active ? '#ffffff' : '#999999')};
+  background-color: ${(props) => (props.$active ? '#212121' : '#000000')};
   border: 1px solid;
-  border-color: ${(props) => (props.active ? '#343434' : '#000000')};
+  border-color: ${(props) => (props.$active ? '#343434' : '#000000')};
   border-radius: 4px;
   margin: 3px;
   height: 40px;

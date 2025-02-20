@@ -13,11 +13,11 @@ export const BaseColorRadioBox = styled.div`
 export const BaseColorOption = styled.button`
   box-sizing: border-box;
   font-size: 16px;
-  color: ${(props) => (props.active ? '#ffffff' : '#999999')};
-  background-color: ${(props) => (props.active ? '#212121' : '#000000')};
+  color: ${(props) => (props.$active ? '#ffffff' : '#999999')};
+  background-color: ${(props) => (props.$active ? '#212121' : '#000000')};
   border: 1px solid;
   border-radius: 3px;
-  border-color: ${(props) => (props.active ? '#343434' : '#000000')};
+  border-color: ${(props) => (props.$active ? '#343434' : '#000000')};
   width: 100%;
   height: 38px;
   display: flex;

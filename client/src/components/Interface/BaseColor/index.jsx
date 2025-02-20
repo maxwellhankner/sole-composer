@@ -137,7 +137,7 @@ function ChangeBaseColor({
       <InterfaceSingleButtons>
         <BaseColorRadioBox>
           <BaseColorOption
-            active={radioOption === 'left'}
+            $active={radioOption === 'left'}
             onClick={() => {
               handleRadioOption('left');
             }}
@@ -145,7 +145,7 @@ function ChangeBaseColor({
             Left
           </BaseColorOption>
           <BaseColorOption
-            active={radioOption === 'both'}
+            $active={radioOption === 'both'}
             onClick={() => {
               handleRadioOption('both');
             }}
@@ -153,7 +153,7 @@ function ChangeBaseColor({
             Both
           </BaseColorOption>
           <BaseColorOption
-            active={radioOption === 'right'}
+            $active={radioOption === 'right'}
             onClick={() => {
               handleRadioOption('right');
             }}
@@ -175,7 +175,7 @@ function ChangeBaseColor({
           <InterfaceTitle>Base Color</InterfaceTitle>
         </InterfaceTitleBox>
         <InterfaceIconButtonBox>
-          <InterfaceIconButton active onClick={() => updateBaseColor()}>
+          <InterfaceIconButton $active onClick={() => updateBaseColor()}>
             <FaCheck />
           </InterfaceIconButton>
         </InterfaceIconButtonBox>

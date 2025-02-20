@@ -17,7 +17,7 @@ function MaskTypes({ props }) {
         {design.configData.maskTypes[currentPartName].map((type, i) => (
           <InterfaceButtonBox key={i}>
             <InterfaceButton
-              active
+              $active
               onClick={() => {
                 handleAddMaskLayer(type[0], type[1]);
                 setLayersView('LayersMain');
@@ -28,7 +28,7 @@ function MaskTypes({ props }) {
           </InterfaceButtonBox>
         ))}
         <InterfaceButtonBox>
-          <InterfaceButton active onClick={() => setLayersView('LayersMain')}>
+          <InterfaceButton $active onClick={() => setLayersView('LayersMain')}>
             Cancel
           </InterfaceButton>
         </InterfaceButtonBox>

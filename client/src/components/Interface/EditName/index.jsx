@@ -39,7 +39,7 @@ function EditName({ handleViewChange, design, setDesign, setCanSave }) {
           ></EditNameInput>
         </InterfaceButtonBox>
         <InterfaceButtonBox>
-          <InterfaceButton active onClick={() => handleUpdateDesignName()}>
+          <InterfaceButton $active onClick={() => handleUpdateDesignName()}>
             Done
           </InterfaceButton>
         </InterfaceButtonBox>

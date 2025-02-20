@@ -143,7 +143,7 @@ function GraphicPicker({ props }) {
 
       <InterfaceSingleButtons>
         <InterfaceButtonBox>
-          <InterfaceButton active onClick={() => setLayersView('LayersMain')}>
+          <InterfaceButton $active onClick={() => setLayersView('LayersMain')}>
             Cancel
           </InterfaceButton>
         </InterfaceButtonBox>

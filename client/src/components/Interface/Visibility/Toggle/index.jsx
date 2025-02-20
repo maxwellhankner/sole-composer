@@ -48,7 +48,7 @@ function Toggle({ setCurrentShoe, visibility, setVisibility }) {
     <InterfaceSingleButtons>
       <ToggleOptionBox>
         <ToggleOptionButton
-          active={visibility.left}
+          $active={visibility.left}
           onClick={() => {
             hanleShoeVisibility('left');
           }}
@@ -58,7 +58,7 @@ function Toggle({ setCurrentShoe, visibility, setVisibility }) {
       </ToggleOptionBox>
       <ToggleOptionBox>
         <ToggleOptionButton
-          active={visibility.right}
+          $active={visibility.right}
           onClick={() => {
             hanleShoeVisibility('right');
           }}

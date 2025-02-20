@@ -45,7 +45,7 @@ function PartSelector({
       <PartSelectorContainer>
         <PartSelectorButtonBox>
           <PartSelectorButton
-            active
+            $active
             onClick={() => {
               handlePartChange(-1);
               setCurrentLayer(-1);
@@ -57,7 +57,7 @@ function PartSelector({
 
         <PartSelectorButtonBox>
           <PartSelectorButton
-            active
+            $active
             onClick={() => {
               handleShoeChange(-1);
               setCurrentLayer(-1);
@@ -80,7 +80,7 @@ function PartSelector({
 
         <PartSelectorButtonBox>
           <PartSelectorButton
-            active
+            $active
             onClick={() => {
               handlePartChange(1);
               setCurrentLayer(-1);
