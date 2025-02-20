@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, createRoutesFromElements } from 'react-router-dom';
 import { UNSAFE_DataRouterContext, UNSAFE_DataRouterStateContext } from 'react-router-dom';
-import UserProvider from '../UserProvider';
-import Landing from '../containers/Landing';
-import Designer from '../containers/Designer';
-import Login from '../containers/Login';
-import Profile from '../containers/Profile';
-import NoPage from '../containers/NoPage';
+import UserProvider from '../UserProvider.jsx';
+import Landing from '../containers/Landing/index.jsx';
+import Designer from '../containers/Designer/index.jsx';
+import Login from '../containers/Login/index.jsx';
+import Profile from '../containers/Profile/index.jsx';
+import NoPage from '../containers/NoPage/index.jsx';
 import { AppContainer } from './styledComponents';
 import 'sanitize.css';
 

@@ -53,13 +53,11 @@ function Designer() {
   useEffect(() => {
     if (id) {
       simpleFetch(`/api/outlines/${id}`, 'GET')
-        .then((res) => res.json())
         .then((data) => {
           setup(data);
         });
     } else {
       simpleFetch('/api/outlines/newdesign', 'GET')
-        .then((res) => res.json())
         .then((data) => {
           setup(data);
         });

@@ -1,5 +1,4 @@
-const request = require('request');
-
+const axios = require('axios');
 const upload = require('../middleware/uploadImage');
 const singleUpload = upload.single('image');
 
@@ -11,19 +10,24 @@ exports.getImage = async (req, res, next) => {
     const imageUrl = `https://sole-composer-user-assets.s3.us-east-2.amazonaws.com/${req.params.id}`;
     console.log('Image URL:', imageUrl);
     
-    request
-      .get(imageUrl)
-      .on('error', (error) => {
-        console.error('S3 Request Error:', error);
-        return res.status(500).json({ error: error.message });
-      })
-      .on('response', (response) => {
-        console.log('S3 Response Status:', response.statusCode);
-        if (response.statusCode !== 200) {
-          return res.status(response.statusCode).json({ error: 'Failed to fetch image' });
-        }
-      })
-      .pipe(res);
+    const response = await axios({
+      method: 'get',
+      url: imageUrl,
+      responseType: 'stream',
+      validateStatus: false
+    });
+
+    console.log('S3 Response Status:', response.status);
+    if (response.status !== 200) {
+      return res.status(response.status).json({ error: 'Failed to fetch image' });
+    }
+
+    response.data.on('error', (error) => {
+      console.error('S3 Stream Error:', error);
+      return res.status(500).json({ error: error.message });
+    });
+
+    response.data.pipe(res);
   } catch (error) {
     console.error('Controller Error:', error);
     return res.status(500).json({ error: error.message });
@@ -54,19 +58,24 @@ exports.getDesignImage = async (req, res, next) => {
     const imageUrl = `https://sole-composer-design-assets.s3.us-east-2.amazonaws.com/${req.params.id}`;
     console.log('Design Image URL:', imageUrl);
     
-    request
-      .get(imageUrl)
-      .on('error', (error) => {
-        console.error('S3 Design Request Error:', error);
-        return res.status(500).json({ error: error.message });
-      })
-      .on('response', (response) => {
-        console.log('S3 Design Response Status:', response.statusCode);
-        if (response.statusCode !== 200) {
-          return res.status(response.statusCode).json({ error: 'Failed to fetch design image' });
-        }
-      })
-      .pipe(res);
+    const response = await axios({
+      method: 'get',
+      url: imageUrl,
+      responseType: 'stream',
+      validateStatus: false
+    });
+
+    console.log('S3 Design Response Status:', response.status);
+    if (response.status !== 200) {
+      return res.status(response.status).json({ error: 'Failed to fetch design image' });
+    }
+
+    response.data.on('error', (error) => {
+      console.error('S3 Design Stream Error:', error);
+      return res.status(500).json({ error: error.message });
+    });
+
+    response.data.pipe(res);
   } catch (error) {
     console.error('Design Controller Error:', error);
     return res.status(500).json({ error: error.message });
