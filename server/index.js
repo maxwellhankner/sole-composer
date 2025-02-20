@@ -40,7 +40,7 @@ app.use(passport.session());
 
 // Serve static files in production
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../client/build')));
+  app.use(express.static(path.join(__dirname, '../client/dist')));
 } else {
   // In development, allow CORS for Vite's dev server
   app.use(cors({
