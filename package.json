@@ -13,6 +13,7 @@
     "dev:server": "cd server && NODE_ENV=development nodemon --inspect index.js",
     "dev:client": "cd client && npm run start",
     "build": "cd client && npm run build",
+    "preview": "concurrently -n 'server,client' -c '#3c863a,#61dbfb' \"npm run dev:server\" \"cd client && npm run preview\"",
     "clean": "rm -rf node_modules client/node_modules",
     "setup": "npm install && cd client && npm install"
   },

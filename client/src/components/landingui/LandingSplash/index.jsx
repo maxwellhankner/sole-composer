@@ -8,6 +8,7 @@ import {
   SplashRight,
   SplashImage,
 } from './styledComponents';
+import soleCover from '../../../assets/sole-cover.png';
 
 function LandingSplash() {
   return (
@@ -21,7 +22,7 @@ function LandingSplash() {
         <SplashDesignButton />
       </SplashLeft>
       <SplashRight>
-        <SplashImage src="/sole-cover.png" />
+        <SplashImage src={soleCover} />
       </SplashRight>
     </LandingSplashContainer>
   );
