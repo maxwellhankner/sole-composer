@@ -50,7 +50,6 @@ function DesignMenu({
             outlineData: design.outlineData,
           };
           designFetch('/api/outlines', 'POST', body)
-            .then((res) => res.json())
             .then((data) => {
               window.location.href = `/designer/${data._id}`;
             });
@@ -89,7 +88,6 @@ function DesignMenu({
             outlineData: design.outlineData,
           };
           designFetch(`/api/outlines/`, 'POST', body)
-            .then((res) => res.json())
             .then((data) => {
               window.location.href = `/designer/${data._id}`;
             });
@@ -98,17 +96,10 @@ function DesignMenu({
     }
   };
 
-  const handleDeleteDesign = () => {
-    if (userData) {
-      if (userData._id === design.author) {
-        fetch(`/api/outlines/${design._id}`, {
-          method: 'DELETE',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
-        window.location.href = '/';
-      }
+  const handleDeleteDesign = async () => {
+    if (userData && userData._id === design.author) {
+      await designFetch(`/api/outlines/${design._id}`, 'DELETE');
+      window.location.href = '/';
     }
   };
 

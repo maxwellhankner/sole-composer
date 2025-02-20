@@ -1,21 +1,15 @@
-const aws = require('aws-sdk');
+const { S3Client } = require('@aws-sdk/client-s3');
 const multer = require('multer');
 const multerS3 = require('multer-s3');
 
 // Configure AWS
-aws.config.update({
-  secretAccessKey: process.env.S3_ACCESS_SECRET,
-  accessKeyId: process.env.S3_ACCESS_KEY,
+const s3Client = new S3Client({
+  credentials: {
+    accessKeyId: process.env.S3_ACCESS_KEY,
+    secretAccessKey: process.env.S3_ACCESS_SECRET,
+  },
   region: 'us-east-2'
 });
-
-console.log('AWS Config:', {
-  hasSecretKey: !!process.env.S3_ACCESS_SECRET,
-  hasAccessKey: !!process.env.S3_ACCESS_KEY,
-  region: 'us-east-2'
-});
-
-const s3 = new aws.S3();
 
 const fileFilter = (req, file, cb) => {
   if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
@@ -28,9 +22,9 @@ const fileFilter = (req, file, cb) => {
 const upload = multer({
   fileFilter,
   storage: multerS3({
-    acl: 'public-read',
-    s3,
+    s3: s3Client,
     bucket: 'sole-composer-user-assets',
+    acl: 'public-read',
     metadata: function (req, file, cb) {
       cb(null, { fieldName: 'TESTING_METADATA' });
     },

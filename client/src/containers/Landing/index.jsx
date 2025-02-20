@@ -29,12 +29,10 @@ function Landing() {
 
   useEffect(() => {
     simpleFetch('/api/featured', 'GET')
-      .then((res) => res.json())
       .then((data) => setFeatured(data));
 
     if (userData) {
       simpleFetch('/api/outlines/mydesigns', 'GET')
-        .then((res) => res.json())
         .then((data) => setMyDesigns(data));
     }
   }, [userData]);
