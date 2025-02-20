@@ -4,12 +4,10 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config();
 
-// Debug environment variables
-console.log('Environment variables loaded:');
-console.log('NODE_ENV:', process.env.NODE_ENV);
-console.log('ATLAS_URI exists:', !!process.env.ATLAS_URI);
-console.log('S3_ACCESS_KEY exists:', !!process.env.S3_ACCESS_KEY);
-console.log('S3_ACCESS_SECRET exists:', !!process.env.S3_ACCESS_SECRET);
+// Log environment status
+if (process.env.NODE_ENV === 'development') {
+  console.log('Running in development mode');
+}
 
 const passport = require('passport');
 require('./src/middleware/googleAuth');
@@ -55,7 +53,7 @@ const uri = process.env.ATLAS_URI;
 mongoose.connect(uri);
 const connection = mongoose.connection;
 connection.once('open', () => {
-  console.log('MongoDB connection established successfully');
+  console.log('Server ready on port:', port);
 });
 
 // Routes
@@ -107,6 +105,4 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-app.listen(port, () => {
-  console.log('App is listening on port:', port);
-});
+app.listen(port);

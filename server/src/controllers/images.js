@@ -6,9 +6,7 @@ const singleUpload = upload.single('image');
 // GET /api/assets/images/:id
 exports.getImage = async (req, res, next) => {
   try {
-    console.log('Fetching image:', req.params.id);
     const imageUrl = `https://sole-composer-user-assets.s3.us-east-2.amazonaws.com/${req.params.id}`;
-    console.log('Image URL:', imageUrl);
     
     const response = await axios({
       method: 'get',
@@ -17,7 +15,6 @@ exports.getImage = async (req, res, next) => {
       validateStatus: false
     });
 
-    console.log('S3 Response Status:', response.status);
     if (response.status !== 200) {
       return res.status(response.status).json({ error: 'Failed to fetch image' });
     }
@@ -54,9 +51,7 @@ exports.uploadImage = (req, res, next) => {
 // GET /api/assets/designimages/:id
 exports.getDesignImage = async (req, res, next) => {
   try {
-    console.log('Fetching design image:', req.params.id);
     const imageUrl = `https://sole-composer-design-assets.s3.us-east-2.amazonaws.com/${req.params.id}`;
-    console.log('Design Image URL:', imageUrl);
     
     const response = await axios({
       method: 'get',
@@ -65,7 +60,6 @@ exports.getDesignImage = async (req, res, next) => {
       validateStatus: false
     });
 
-    console.log('S3 Design Response Status:', response.status);
     if (response.status !== 200) {
       return res.status(response.status).json({ error: 'Failed to fetch design image' });
     }

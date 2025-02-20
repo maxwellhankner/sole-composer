@@ -11,12 +11,6 @@ const s3Client = new S3Client({
   region: 'us-east-2'
 });
 
-console.log('AWS Config:', {
-  hasSecretKey: !!process.env.S3_ACCESS_SECRET,
-  hasAccessKey: !!process.env.S3_ACCESS_KEY,
-  region: 'us-east-2'
-});
-
 const fileFilter = (req, file, cb) => {
   if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
     cb(null, true);
