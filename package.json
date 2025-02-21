@@ -15,7 +15,8 @@
     "build": "cd client && npm run build",
     "preview": "concurrently -n 'server,client' -c '#3c863a,#61dbfb' \"npm run dev:server\" \"cd client && npm run preview\"",
     "clean": "rm -rf node_modules client/node_modules",
-    "setup": "npm install && cd client && npm install"
+    "setup": "npm install && cd client && npm install",
+    "fresh": "npm run clean && npm run setup"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.515.0",
