@@ -115,15 +115,15 @@ const Scene = ({
     <SceneContainer id="scene-container-id">
       <Canvas
         camera={{ fov: 45 }}
-        
         dpr={3}
         gl={(gl) => {
           gl.preserveDrawingBuffer = true;
+          gl.colorSpace = THREE.SRGBColorSpace;
           return gl;
         }}
       >
         <CameraRig reset={cameraReset} />
-        <ambientLight />
+        <ambientLight intensity={Math.PI} color={"#ffffff"}/>
         <Suspense fallback={null}>
           {shoeVisibility.right && (
             <Shoe
