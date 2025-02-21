@@ -123,7 +123,7 @@ const Scene = ({
         }}
       >
         <CameraRig reset={cameraReset} />
-        <ambientLight intensity={Math.PI} color={"#ffffff"}/>
+        <ambientLight intensity={2.8} color={"#ffffff"}/>
         <Suspense fallback={null}>
           {shoeVisibility.right && (
             <Shoe
