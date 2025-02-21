@@ -1,4 +1,4 @@
-import React, { useRef, Suspense } from 'react';
+import React, { useRef, Suspense, useEffect } from 'react';
 import { Canvas, useLoader, useThree } from '@react-three/fiber';
 import { useGLTF, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
@@ -81,7 +81,7 @@ function Shoe({
         position={[0, -1, alone ? 0 : right ? 1.3 : -1.3]}
         scale={[right ? 0.35 : -0.35, 0.35, 0.35]}
       >
-        <meshStandardMaterial aoMap={aoMap} map={texture} />
+        <meshStandardMaterial aoMap={aoMap} aoMapIntensity={1} map={texture} />
       </mesh>
     </group>
   );
@@ -115,9 +115,12 @@ const Scene = ({
     <SceneContainer id="scene-container-id">
       <Canvas
         camera={{ fov: 45 }}
-        linear
+        
         dpr={3}
-        gl={{ preserveDrawingBuffer: true }}
+        gl={(gl) => {
+          gl.preserveDrawingBuffer = true;
+          return gl;
+        }}
       >
         <CameraRig reset={cameraReset} />
         <ambientLight />
