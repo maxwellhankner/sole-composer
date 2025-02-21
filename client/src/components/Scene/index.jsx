@@ -116,9 +116,9 @@ const Scene = ({
       <Canvas
         camera={{ fov: 45 }}
         dpr={3}
+        flat
         gl={(gl) => {
           gl.preserveDrawingBuffer = true;
-          gl.colorSpace = THREE.SRGBColorSpace;
           return gl;
         }}
       >
