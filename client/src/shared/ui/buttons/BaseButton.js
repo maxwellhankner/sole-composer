@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import {
   defaultButtonTextColor,
   defaultButtonBackgroundColor,
-} from '../../../utils/css/defaultStyles';
+} from '../../utils/css/defaultStyles';
 
 const BasicButton = styled.button`
   box-shadow: none;

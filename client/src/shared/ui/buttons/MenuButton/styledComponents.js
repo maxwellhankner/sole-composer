@@ -3,7 +3,8 @@ import { BaseButton } from '../';
 import {
   googleLoginButtonBackgroundColor,
   defaultButtonBackgroundColor,
-} from '../../../../utils/css/defaultStyles';
+  defaultButtonTextColor
+} from '../../../utils/css/defaultStyles';
 
 export const MenuButton = styled(BaseButton)`
   height: 40px;

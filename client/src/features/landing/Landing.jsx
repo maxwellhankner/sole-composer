@@ -4,7 +4,7 @@ import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import './styles/Carousel.css';
 import UserProvider from '../../context/UserContext';
-import { simpleFetch } from '../../utils/helpers/fetchHelpers';
+import { simpleFetch } from '../../shared/utils/helpers/fetchHelpers';
 import {
   LandingContainer,
   LandingContent,
@@ -16,11 +16,10 @@ import {
   LandingSpacing,
   HeaderSpacing,
 } from './styles/Landing.styles';
-import { NewDesignButton } from '../../components/landingui/Buttons';
-import { LandingSignUpButton } from '../../components/landingui/Buttons';
-import { FeaturedDesignCard } from '../../components/landingui/Cards';
-import LandingSplash from '../../components/landingui/LandingSplash';
-import MyDesigns from '../../components/landingui/MyDesigns';
+import { NewDesignButton, LandingSignUpButton } from '../../shared/ui/Buttons';
+import { FeaturedDesignCard } from '../../shared/ui/Cards';
+import LandingSplash from '../../shared/ui/LandingSplash';
+import MyDesigns from '../../shared/ui/MyDesigns';
 
 function Landing() {
   const userData = useContext(UserProvider.context);

@@ -2,8 +2,8 @@ import React, { useContext } from 'react';
 import UserProvider from '../../context/UserContext';
 import { Link } from 'react-router-dom';
 import { ProfileContainer } from './Profile.styles';
-import { MenuButton } from '../../components/landingui/Buttons';
-import { MenuPara } from '../../components/landingui/Text';
+import { MenuButton } from '../../shared/ui/Buttons';
+import { MenuPara } from '../../shared/ui/Text';
 
 function Profile() {
   const userData = useContext(UserProvider.context);

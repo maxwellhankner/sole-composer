@@ -1,6 +1,6 @@
-export const uploadImage = async (file, newImage) => {
+export const uploadImage = (file, isNew) => {
   const formData = new FormData();
-  if (newImage) {
+  if (isNew) {
     formData.append('image', file, 'newImage');
   } else {
     formData.append('image', file);
