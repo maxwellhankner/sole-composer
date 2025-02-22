@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { mediaQueriesByDevice } from '../../utils/css/breakpoints';
+import { mediaQueriesByDevice } from '../../../utils/css/breakpoints';
 const { desktop } = mediaQueriesByDevice;
 
 export const LandingContainer = styled.div`

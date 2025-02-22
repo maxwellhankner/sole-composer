@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
-import './Carousel.css';
+import './styles/Carousel.css';
 import UserProvider from '../../context/UserContext';
 import { simpleFetch } from '../../utils/helpers/fetchHelpers';
 import {
@@ -15,7 +15,7 @@ import {
   LandingSectionLabel,
   LandingSpacing,
   HeaderSpacing,
-} from './styledComponents';
+} from './styles/Landing.styles';
 import { NewDesignButton } from '../../components/landingui/Buttons';
 import { LandingSignUpButton } from '../../components/landingui/Buttons';
 import { FeaturedDesignCard } from '../../components/landingui/Cards';
