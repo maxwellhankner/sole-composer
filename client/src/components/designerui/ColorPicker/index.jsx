@@ -40,62 +40,64 @@ export const CustomColor = ({
   return (
     <ColorPickerWrapper>
       <CustomColorContainer>
-      <InterfaceSingleButtons>
-        <InterfaceButtonBox>
-          <HueContainer>
-            <Hue
-              hsl={hsl}
-              onChange={onChange}
-              pointer={CustomColorPointerOffset}
+        <InterfaceSingleButtons>
+          <InterfaceButtonBox>
+            <HueContainer>
+              <Hue
+                hsl={hsl}
+                onChange={onChange}
+                pointer={CustomColorPointerOffset}
+              />
+            </HueContainer>
+          </InterfaceButtonBox>
+
+          <InterfaceButtonBox>
+            <SaturationContainer>
+              <Saturation
+                hsl={hsl}
+                hsv={hsv}
+                onChange={onChange}
+                pointer={CustomColorPointer}
+              />
+            </SaturationContainer>
+          </InterfaceButtonBox>
+
+          {colorsArray && (
+            <CurrentColors
+              colorsArray={colorsArray}
+              handleColorChange={handleColorChange}
             />
-          </HueContainer>
-        </InterfaceButtonBox>
+          )}
+        </InterfaceSingleButtons>
 
-        <InterfaceButtonBox>
-          <SaturationContainer>
-            <Saturation
-              hsl={hsl}
-              hsv={hsv}
-              onChange={onChange}
-              pointer={CustomColorPointer}
-            />
-          </SaturationContainer>
-        </InterfaceButtonBox>
+        <InterfaceDoubleButtons>
+          <InterfaceButtonBox>
+            <InterfaceButton
+              $active
+              onClick={() =>
+                handleColorChange(
+                  '#' +
+                    (
+                      '00000' + ((Math.random() * (1 << 24)) | 0).toString(16)
+                    ).slice(-6)
+                )
+              }
+            >
+              Random
+            </InterfaceButton>
+          </InterfaceButtonBox>
 
-        <CurrentColors
-          colorsArray={colorsArray}
-          handleColorChange={handleColorChange}
-        />
-      </InterfaceSingleButtons>
-
-      <InterfaceDoubleButtons>
-        <InterfaceButtonBox>
-          <InterfaceButton
-            $active
-            onClick={() =>
-              handleColorChange(
-                '#' +
-                  (
-                    '00000' + ((Math.random() * (1 << 24)) | 0).toString(16)
-                  ).slice(-6)
-              )
-            }
-          >
-            Random
-          </InterfaceButton>
-        </InterfaceButtonBox>
-
-        <InterfaceButtonBox>
-          <CustomColorInputContainer>
-            <EditableInput
-              className="editable-input"
-              value={hex}
-              onChange={onChange}
-            />
-            <CustomColorInputSwatch color={hex}></CustomColorInputSwatch>
-          </CustomColorInputContainer>
-        </InterfaceButtonBox>
-      </InterfaceDoubleButtons>
+          <InterfaceButtonBox>
+            <CustomColorInputContainer>
+              <EditableInput
+                className="editable-input"
+                value={hex}
+                onChange={onChange}
+              />
+              <CustomColorInputSwatch color={hex} />
+            </CustomColorInputContainer>
+          </InterfaceButtonBox>
+        </InterfaceDoubleButtons>
       </CustomColorContainer>
     </ColorPickerWrapper>
   );
