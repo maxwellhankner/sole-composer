@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import Scene from '../Scene';
-import Interface from '../../components/Interface/Interface.jsx';
+import Scene from '../../../components/Scene';
+import Interface from '../../../components/Interface/Interface.jsx';
 import {
   setup,
   designObjectToCanvasObject,
@@ -8,8 +8,8 @@ import {
   partChangeManager,
   canvasObjectToTextureCanvas,
   overlayChangeManager,
-} from '../../utils/canvasFunctions';
-import { DesignerContainerStyle } from './styledComponents';
+} from '../../../utils/canvasFunctions';
+import { DesignerContainerStyle } from './DesignerContainer.styles';
 
 function DesignerContainer({
   userData,
@@ -170,7 +170,6 @@ function DesignerContainer({
   };
 
   const handleUpdateBaseColor = async (tempDesign) => {
-    // baseColor to baseColor Canvas Object
     rightBaseColorCanvasObjectRef.current = await designObjectToCanvasObject({
       design: tempDesign,
       type: 'baseColorCanvasObject',
@@ -181,7 +180,6 @@ function DesignerContainer({
       type: 'baseColorCanvasObject',
       currentShoe: 'left',
     });
-    // Canvas Object to Canvas
     const rightCanvas = await canvasObjectToTextureCanvas({
       design,
       canvasObject: rightCanvasObjectRef.current,
@@ -192,7 +190,6 @@ function DesignerContainer({
       canvasObject: leftCanvasObjectRef.current,
       baseColorCanvasObject: leftBaseColorCanvasObjectRef.current,
     });
-    // Canvas to Texture Canvas
     rightTextureCanvas.getContext('2d').drawImage(rightCanvas, 0, 0);
     rightTexture.needsUpdate = true;
     leftTextureCanvas.getContext('2d').drawImage(leftCanvas, 0, 0);
@@ -281,4 +278,4 @@ function DesignerContainer({
   }
 }
 
-export default DesignerContainer;
+export default DesignerContainer; 
