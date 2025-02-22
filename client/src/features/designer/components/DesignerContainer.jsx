@@ -8,7 +8,7 @@ import {
   partChangeManager,
   canvasObjectToTextureCanvas,
   overlayChangeManager,
-} from '../../../utils/canvasFunctions';
+} from '../utils/canvas';
 import { DesignerContainerStyle } from './DesignerContainer.styles';
 
 function DesignerContainer({

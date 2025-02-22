@@ -5,7 +5,7 @@ import {
   createCanvas,
   createRedMapCanvas,
   createGraphicVisualCanvas,
-} from '../../utils/canvasFunctions';
+} from './utils/canvas';
 import { simpleFetch } from '../../utils/helpers/fetchHelpers';
 import { useParams } from 'react-router-dom';
 import UserProvider from '../../context/UserContext';
