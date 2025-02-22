@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { NoPageContainer } from './styledComponents';
+import { NoPageContainer } from './NoPage.styles';
 import { MenuButton } from '../../components/landingui/Buttons';
 import { MenuPara } from '../../components/landingui/Text';
 

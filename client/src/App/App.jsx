@@ -6,7 +6,7 @@ import Landing from '../features/landing/Landing.jsx';
 import Designer from '../features/designer/Designer.jsx';
 import Login from '../containers/Login/index.jsx';
 import Profile from '../features/profile/Profile';
-import NoPage from '../containers/NoPage/index.jsx';
+import NoPage from '../features/error/NoPage';
 import { AppContainer } from './styledComponents';
 import 'sanitize.css';
 
