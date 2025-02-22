@@ -58,7 +58,17 @@ function Landing() {
         {userData ? (
           <Link to="/profile">{userData.firstName}</Link>
         ) : (
-          <Link to="/login">Login</Link>
+          <span 
+            style={{ 
+              cursor: 'not-allowed', 
+              opacity: 0.7,
+              color: '#ffffff',
+              textDecoration: 'none',
+              margin: 'auto 15px'
+            }}
+          >
+            Login (Disabled)
+          </span>
         )}
       </LandingHeader>
 
@@ -78,9 +88,12 @@ function Landing() {
 
         {!userData && (
           <LandingSignUpContainer>
-            <Link to="/login">
-              <LandingSignUpButton>sign up</LandingSignUpButton>
-            </Link>
+            <LandingSignUpButton 
+              style={{ cursor: 'not-allowed', opacity: 0.7 }} 
+              onClick={(e) => e.preventDefault()}
+            >
+              sign up (disabled)
+            </LandingSignUpButton>
           </LandingSignUpContainer>
         )}
 
