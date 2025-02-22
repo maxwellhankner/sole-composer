@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import UserProvider from '../../UserProvider';
+import UserProvider from '../../context/UserContext';
 import { Link } from 'react-router-dom';
 import { ProfileContainer } from './styledComponents';
 import { MenuButton } from '../../components/landingui/Buttons';

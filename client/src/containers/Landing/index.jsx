@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import './Carousel.css';
-import UserProvider from '../../UserProvider';
+import UserProvider from '../../context/UserContext';
 import { simpleFetch } from '../../utils/helpers/fetchHelpers';
 import {
   LandingContainer,

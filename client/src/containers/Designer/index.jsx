@@ -8,7 +8,7 @@ import {
 } from '../../utils/canvasFunctions';
 import { simpleFetch } from '../../utils/helpers/fetchHelpers';
 import { useParams } from 'react-router-dom';
-import UserProvider from '../../UserProvider';
+import UserProvider from '../../context/UserContext';
 
 function Designer() {
   const { id } = useParams();
