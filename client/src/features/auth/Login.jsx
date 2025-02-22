@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { LoginContainer } from './styledComponents';
+import { LoginContainer } from './Login.styles';
 import { MenuButton } from '../../components/landingui/Buttons';
 
 function Login() {

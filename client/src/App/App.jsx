@@ -4,7 +4,7 @@ import { UNSAFE_DataRouterContext, UNSAFE_DataRouterStateContext } from 'react-r
 import UserProvider from '../context/UserContext.jsx';
 import Landing from '../features/landing/Landing.jsx';
 import Designer from '../features/designer/Designer.jsx';
-import Login from '../containers/Login/index.jsx';
+import Login from '../features/auth/Login';
 import Profile from '../features/profile/Profile';
 import NoPage from '../features/error/NoPage';
 import { AppContainer } from './styledComponents';
