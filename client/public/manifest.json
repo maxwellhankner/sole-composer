@@ -3,7 +3,7 @@
   "name": "Sole Composer",
   "icons": [
     {
-      "src": "/src/assets/homescreen-icon.png",
+      "src": "/homescreen-icon.png",
       "type": "image/png",
       "sizes": "512x512"
     }

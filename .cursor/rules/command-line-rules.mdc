@@ -1,0 +1,6 @@
+---
+description: guide for running commands in the teminal
+globs: 
+---
+- to update/reinstall packages, use 'npm run fresh' in the root directory
+- to start the application in developer mode, use 'npm run dev' in the root directory

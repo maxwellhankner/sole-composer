@@ -10,12 +10,22 @@ export default defineConfig({
       '/api': {
         target: 'http://localhost:8000',
         changeOrigin: true,
-        secure: false
+        secure: false,
+        configure: (proxy, _options) => {
+          proxy.on('error', (err, _req, _res) => {
+            console.log('proxy error', err);
+          });
+        }
       },
       '/auth': {
         target: 'http://localhost:8000',
         changeOrigin: true,
-        secure: false
+        secure: false,
+        configure: (proxy, _options) => {
+          proxy.on('error', (err, _req, _res) => {
+            console.log('proxy error', err);
+          });
+        }
       }
     }
   },
@@ -30,12 +40,9 @@ export default defineConfig({
       }
     }
   },
-  esbuild: {
-    loader: 'jsx',
-    include: /src\/.*\.jsx?$/
-  },
   optimizeDeps: {
     esbuildOptions: {
+      jsx: 'automatic',
       loader: {
         '.js': 'jsx'
       }
@@ -46,10 +53,20 @@ export default defineConfig({
       '/api': {
         target: 'http://localhost:8000',
         changeOrigin: true,
+        configure: (proxy, _options) => {
+          proxy.on('error', (err, _req, _res) => {
+            console.log('proxy error', err);
+          });
+        }
       },
       '/auth': {
         target: 'http://localhost:8000',
         changeOrigin: true,
+        configure: (proxy, _options) => {
+          proxy.on('error', (err, _req, _res) => {
+            console.log('proxy error', err);
+          });
+        }
       }
     }
   }
