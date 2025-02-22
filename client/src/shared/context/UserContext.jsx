@@ -6,7 +6,6 @@ const context = createContext(null);
 const UserProvider = ({ children }) => {
   const [user, setUser] = useState();
 
-  // ... existing code ...
   useEffect(() => {
     fetch('/auth/getsession', {
       method: 'GET',

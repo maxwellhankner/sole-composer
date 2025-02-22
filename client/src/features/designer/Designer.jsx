@@ -8,7 +8,7 @@ import {
 } from './utils/canvas';
 import { simpleFetch } from '../../shared/utils/helpers/fetchHelpers';
 import { useParams } from 'react-router-dom';
-import UserProvider from '../../context/UserContext';
+import UserProvider from '../../shared/context/UserContext';
 import Scene from './components/scene';
 import Interface from './components/interface/Interface';
 
