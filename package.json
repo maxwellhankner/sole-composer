@@ -9,11 +9,11 @@
   },
   "scripts": {
     "start": "cd server && NODE_ENV=production node index.js",
-    "dev": "concurrently --kill-others --handle-input -n \"server,client\" -c \"green,blue\" \"npm run dev:server\" \"npm run dev:client\"",
+    "dev": "concurrently --kill-others -n \"server,client\" -c \"#339933,#61DAFB\" \"npm run dev:server\" \"npm run dev:client\"",
     "dev:server": "cd server && NODE_ENV=development nodemon --quiet index.js",
     "dev:client": "cd client && npm run start",
     "build": "cd client && npm run build",
-    "preview": "concurrently --kill-others --handle-input -n \"server,client\" -c \"green,blue\" \"npm run dev:server\" \"wait-on tcp:8000 && cd client && npm run preview\"",
+    "preview": "concurrently --kill-others -n \"server,client\" -c \"#339933,#61DAFB\" \"npm run dev:server\" \"npx wait-on tcp:8000 && cd client && npm run preview\"",
     "clean": "rm -rf node_modules client/node_modules",
     "setup": "npm install && cd client && npm install",
     "fresh": "npm run clean && npm run setup"
@@ -34,12 +34,12 @@
     "passport": "^0.7.0",
     "passport-google-oauth": "^2.0.0",
     "path": "^0.12.7",
-    "axios": "^1.6.7",
-    "wait-on": "^7.2.0"
+    "axios": "^1.6.7"
   },
   "devDependencies": {
     "concurrently": "^8.2.2",
-    "nodemon": "^3.1.0"
+    "nodemon": "^3.1.0",
+    "wait-on": "^7.2.0"
   },
   "repository": {
     "type": "git",

@@ -19,6 +19,17 @@ export default defineConfig({
       }
     }
   },
+  build: {
+    chunkSizeWarningLimit: 1500,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'three-vendor': ['three', 'three-stdlib'],
+          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+        }
+      }
+    }
+  },
   esbuild: {
     loader: 'jsx',
     include: /src\/.*\.jsx?$/
