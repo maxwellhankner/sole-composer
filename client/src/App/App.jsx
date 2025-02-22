@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes, createRoutesFromElements } from
 import { UNSAFE_DataRouterContext, UNSAFE_DataRouterStateContext } from 'react-router-dom';
 import UserProvider from '../context/UserContext.jsx';
 import Landing from '../containers/Landing/index.jsx';
-import Designer from '../containers/Designer/index.jsx';
+import Designer from '../features/designer/Designer.jsx';
 import Login from '../containers/Login/index.jsx';
 import Profile from '../containers/Profile/index.jsx';
 import NoPage from '../containers/NoPage/index.jsx';
