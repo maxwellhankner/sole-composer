@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import Scene from '../../../components/Scene';
-import Interface from '../../../components/Interface/Interface.jsx';
+import Scene from './scene';
+import Interface from './interface/Interface.jsx';
 import {
   setup,
   designObjectToCanvasObject,

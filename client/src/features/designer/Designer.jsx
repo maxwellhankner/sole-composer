@@ -9,6 +9,8 @@ import {
 import { simpleFetch } from '../../utils/helpers/fetchHelpers';
 import { useParams } from 'react-router-dom';
 import UserProvider from '../../context/UserContext';
+import Scene from './components/scene';
+import Interface from './components/interface/Interface';
 
 function Designer() {
   const { id } = useParams();
