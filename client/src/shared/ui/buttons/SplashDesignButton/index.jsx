@@ -10,7 +10,7 @@ function SplashDesignButton() {
   };
   return (
     <SplashButton onClick={() => handleClick()}>
-      S T A R T &nbsp; D E S I G N I N G
+      START DESIGNING
     </SplashButton>
   );
 }

@@ -8,6 +8,7 @@ export const SplashButton = styled.button`
   height: 44px;
   font-size: 16px;
   width: unset;
+  letter-spacing: 0.2em;
   padding-top: 0;
   padding-bottom: 0;
   padding-left: 25px;

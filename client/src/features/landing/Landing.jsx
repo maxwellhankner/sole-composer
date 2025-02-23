@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import './styles/Carousel.css';
 import UserProvider from '../../shared/context/UserContext';
 import { simpleFetch } from '../../shared/utils/helpers/fetchHelpers';
+import { Button } from '../../components/ui/button';
 import {
   LandingContainer,
   LandingContent,
@@ -16,7 +17,6 @@ import {
   LandingSpacing,
   HeaderSpacing,
 } from './styles/Landing.styles';
-import { NewDesignButton, LandingSignUpButton } from '../../shared/ui/Buttons';
 import { FeaturedDesignCard } from '../../shared/ui/Cards';
 import LandingSplash from '../../shared/ui/LandingSplash';
 import MyDesigns from '../../shared/ui/MyDesigns';
@@ -25,6 +25,7 @@ function Landing() {
   const userData = useContext(UserProvider.context);
   const [featured, setFeatured] = useState();
   const [myDesigns, setMyDesigns] = useState();
+  const navigate = useNavigate();
 
   useEffect(() => {
     simpleFetch('/api/featured', 'GET')
@@ -57,17 +58,13 @@ function Landing() {
         {userData ? (
           <Link to="/profile">{userData.firstName}</Link>
         ) : (
-          <span 
-            style={{ 
-              cursor: 'not-allowed', 
-              opacity: 0.7,
-              color: '#ffffff',
-              textDecoration: 'none',
-              margin: 'auto 15px'
-            }}
+          <Button 
+            variant="ghost"
+            className="opacity-70 cursor-not-allowed"
+            onClick={(e) => e.preventDefault()}
           >
             Login (Disabled)
-          </span>
+          </Button>
         )}
       </LandingHeader>
 
@@ -83,16 +80,27 @@ function Landing() {
           </FeaturedDesignsContainer>
         )}
 
-        {userData && <NewDesignButton />}
+        {userData && (
+          <Button 
+            variant="outline" 
+            size="lg"
+            className="w-full max-w-sm tracking-widest"
+            onClick={() => navigate('/designer')}
+          >
+            NEW DESIGN
+          </Button>
+        )}
 
         {!userData && (
           <LandingSignUpContainer>
-            <LandingSignUpButton 
-              style={{ cursor: 'not-allowed', opacity: 0.7 }} 
+            <Button 
+              variant="secondary"
+              size="lg"
+              className="w-full max-w-sm opacity-70 cursor-not-allowed"
               onClick={(e) => e.preventDefault()}
             >
-              sign up (disabled)
-            </LandingSignUpButton>
+              Sign Up (Disabled)
+            </Button>
           </LandingSignUpContainer>
         )}
 
