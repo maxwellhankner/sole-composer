@@ -13,7 +13,7 @@ function FeaturedDesignCard({ props }) {
   return (
     <div 
       onClick={handleClick}
-      className="cursor-pointer rounded-md bg-white border border-black/10 hover:border-black/20 shadow-sm hover:shadow transition-all duration-200 overflow-hidden"
+      className="cursor-pointer rounded-md bg-white border border-black/15 transition-all duration-200 overflow-hidden"
     >
       <div className="relative w-full aspect-square overflow-hidden bg-gray-50">
         <img 
@@ -26,7 +26,6 @@ function FeaturedDesignCard({ props }) {
       <div className="p-4 space-y-2">
         <H3 className="text-lg">{title}</H3>
         <P className="text-sm text-gray-600">{configId.modelName}</P>
-        <P className="text-sm text-gray-500">{author.firstName}</P>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../../shared/ui/button';
-import { Header } from './components/ui';
+import { Header, Footer } from './components/ui';
 import { H3, P } from './components/ui/typography';
 import { Carousel } from "./components/ui/carousel";
 import FeaturedDesignCard from './components/FeaturedDesignCard';
@@ -36,19 +36,10 @@ function Landing() {
           </Button>
         )}
 
-        {!userData && (
-          <div className="mb-[60px] text-center">
-            <Button 
-              variant="outline"
-              disabled
-            >
-              Sign Up (Disabled)
-            </Button>
-          </div>
-        )}
-
         <MyDesignsSection designs={myDesigns} />
       </div>
+
+      <Footer />
     </div>
   );
 }
