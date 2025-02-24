@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useUserContext } from '../../shared/hooks/useUserContext';
+import { useUserContext } from '../../shared/context/UserContext';
 import { ProfileContainer } from './Profile.styles';
 import { P } from '../../components/ui/typography';
 import { Button } from '../../components/ui/button';

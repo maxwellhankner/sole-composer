@@ -9,7 +9,7 @@ import LandingSplash from './components/LandingSplash';
 import MyDesigns from './components/MyDesigns';
 import { useFeaturedDesigns } from './hooks/useFeaturedDesigns';
 import { useMyDesigns } from './hooks/useMyDesigns';
-import { useUserContext } from '../../shared/hooks/useUserContext';
+import { useUserContext } from '../../shared/context/UserContext';
 
 function Landing() {
   const { userData } = useUserContext();

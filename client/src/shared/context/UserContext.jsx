@@ -1,9 +1,9 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useContext } from 'react';
 
 // Export the context so it can be imported directly
-const context = createContext(null);
+const UserContext = createContext(null);
 
-const UserProvider = ({ children }) => {
+export const UserProvider = ({ children }) => {
   const [user, setUser] = useState();
 
   useEffect(() => {
@@ -20,9 +20,15 @@ const UserProvider = ({ children }) => {
       });
   }, []);
 
-  return <context.Provider value={user}>{children}</context.Provider>;
+  return <UserContext.Provider value={user}>{children}</UserContext.Provider>;
 };
 
-UserProvider.context = context;
+export const useUserContext = () => {
+  const userData = useContext(UserContext);
+  return { userData };
+};
+
+// For legacy support
+UserProvider.context = UserContext;
 
 export default UserProvider; 
