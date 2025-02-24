@@ -1,90 +1,41 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import AliceCarousel from 'react-alice-carousel';
-import 'react-alice-carousel/lib/alice-carousel.css';
-import './styles/Carousel.css';
-import UserProvider from '../../shared/context/UserContext';
-import { simpleFetch } from '../../shared/utils/helpers/fetchHelpers';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
+import { Header } from '../../components/ui';
+import { H3, P } from '../../components/ui/typography';
 import {
-  LandingContainer,
-  LandingContent,
-  LandingHeader,
-  FeaturedDesignsContainer,
-  LandingSignUpContainer,
-  LandingHeaderTitle,
-  LandingSectionLabel,
-  LandingSpacing,
-  HeaderSpacing,
-} from './styles/Landing.styles';
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "../../components/ui/carousel";
 import { FeaturedDesignCard } from '../../shared/ui/Cards';
 import LandingSplash from '../../shared/ui/LandingSplash';
 import MyDesigns from '../../shared/ui/MyDesigns';
+import { useFeaturedDesigns } from './hooks/useFeaturedDesigns';
+import { useMyDesigns } from './hooks/useMyDesigns';
+import { useUserContext } from '../../shared/hooks/useUserContext';
 
 function Landing() {
-  const userData = useContext(UserProvider.context);
-  const [featured, setFeatured] = useState();
-  const [myDesigns, setMyDesigns] = useState();
+  const { userData } = useUserContext();
+  const { featured } = useFeaturedDesigns();
+  const { myDesigns } = useMyDesigns(userData);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    simpleFetch('/api/featured', 'GET')
-      .then((data) => setFeatured(data));
-
-    if (userData) {
-      simpleFetch('/api/outlines/mydesigns', 'GET')
-        .then((data) => setMyDesigns(data));
-    }
-  }, [userData]);
-
-  let items = featured
-    ? featured.featured.map((design, key) => (
-        <FeaturedDesignCard props={design} userData={userData} key={key} />
-      ))
-    : null;
-
-  const responsive = {
-    0: { items: 1.7 },
-    700: { items: 3 },
-  };
-
   return (
-    <LandingContainer>
-      <LandingHeader>
-        <LandingHeaderTitle>
-          <strong>Sole</strong> Composer
-        </LandingHeaderTitle>
-
-        {userData ? (
-          <Link to="/profile">{userData.firstName}</Link>
-        ) : (
-          <Button 
-            variant="ghost"
-            className="opacity-70 cursor-not-allowed"
-            onClick={(e) => e.preventDefault()}
-          >
-            Login (Disabled)
-          </Button>
-        )}
-      </LandingHeader>
-
-      <HeaderSpacing />
+    <div className="h-full font-roboto">
+      <Header />
 
       {!userData && <LandingSplash />}
 
-      <LandingContent>
-        {featured && (
-          <FeaturedDesignsContainer>
-            <LandingSectionLabel>FEATURED</LandingSectionLabel>
-            <AliceCarousel responsive={responsive} items={items} />
-          </FeaturedDesignsContainer>
-        )}
-
+      <div className="w-full px-4 md:max-w-[1100px] md:mx-auto">
+        <FeaturedSection designs={featured?.featured} userData={userData} />
+        
         {userData && (
           <Button 
-            variant="outline" 
-            size="lg"
-            className="w-full max-w-sm tracking-widest"
+            variant="outline"
+            className="mx-auto block"
             onClick={() => navigate('/designer')}
           >
             NEW DESIGN
@@ -92,23 +43,54 @@ function Landing() {
         )}
 
         {!userData && (
-          <LandingSignUpContainer>
+          <div className="mb-[60px] text-center">
             <Button 
-              variant="secondary"
-              size="lg"
-              className="w-full max-w-sm opacity-70 cursor-not-allowed"
-              onClick={(e) => e.preventDefault()}
+              variant="outline"
+              disabled
             >
               Sign Up (Disabled)
             </Button>
-          </LandingSignUpContainer>
+          </div>
         )}
 
-        {myDesigns && <LandingSectionLabel>MY DESIGNS</LandingSectionLabel>}
-        {myDesigns && <MyDesigns myDesigns={myDesigns} />}
-      </LandingContent>
-    </LandingContainer>
+        <MyDesignsSection designs={myDesigns} />
+      </div>
+    </div>
   );
 }
+
+const FeaturedSection = ({ designs, userData }) => {
+  if (!designs) return null;
+
+  return (
+    <div className="w-full mb-8">
+      <H3 className="ml-4 mb-2">FEATURED</H3>
+      <div className="relative">
+        <Carousel className="w-full">
+          <CarouselContent>
+            {designs.map((design, index) => (
+              <CarouselItem key={index} className="basis-full md:basis-1/2 lg:basis-1/3">
+                <FeaturedDesignCard props={design} userData={userData} />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="hidden md:-left-4 md:flex" />
+          <CarouselNext className="hidden md:-right-4 md:flex" />
+        </Carousel>
+      </div>
+    </div>
+  );
+};
+
+const MyDesignsSection = ({ designs }) => {
+  if (!designs) return null;
+
+  return (
+    <>
+      <H3 className="ml-4 mb-2">MY DESIGNS</H3>
+      <MyDesigns myDesigns={designs} />
+    </>
+  );
+};
 
 export default Landing;
