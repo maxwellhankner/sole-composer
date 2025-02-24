@@ -8,7 +8,7 @@ function LandingSplash() {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-gradient-to-b from-gray-50 to-white py-8 md:pt-24 pb-24">
+    <div className="py-8 md:pt-24 pb-24">
       <div className="flex flex-col-reverse md:flex-row md:max-w-[1100px] md:mx-auto">
         <div className="w-full px-5 text-center md:p-0 md:text-left md:w-full flex flex-col justify-center items-center md:items-start space-y-6">
           <H1 className="text-[2rem]">
