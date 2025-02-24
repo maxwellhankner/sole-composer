@@ -43,6 +43,13 @@ export default defineConfig({
           'three-vendor': ['three', 'three-stdlib'],
           'react-vendor': ['react', 'react-dom', 'react-router-dom'],
         }
+      },
+      onwarn(warning, warn) {
+        // Ignore eval warnings from three-stdlib
+        if (warning.code === 'EVAL' && warning.id?.includes('three-stdlib')) {
+          return;
+        }
+        warn(warning);
       }
     }
   },
