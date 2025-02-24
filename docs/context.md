@@ -1,94 +1,70 @@
-# Sole Composer - Project Context
+# Sole Composer
 
-## Project Overview
-Sole Composer is a 3D shoe design application that enables users to create and customize their own shoe designs through an interactive web interface. The application provides real-time 3D visualization and customization options for different parts of the shoe.
+## Overview
+Sole Composer is a web-based 3D shoe design application that lets users create and customize their own shoe designs in real-time.
 
 ## Tech Stack
-- Frontend: React
-- Backend: Node.js (v20.11.1)/Express
-- Database: MongoDB (Mongoose v8.1.3)
-- Storage: AWS S3
-- Authentication: Passport.js with Google OAuth
-- File Handling: Multer/Multer-S3
+- Frontend: React with Three.js for 3D rendering
+- UI: Tailwind CSS and shadcn/ui components
+- Backend: Node.js/Express
+- Database: MongoDB
+- Cloud Storage: AWS S3
+- Authentication: Google OAuth
 
-## Core Architecture
-### Frontend (`/client`)
-- React-based 3D shoe designer
-- Three.js for 3D rendering
-- User interface for customization
-- Design save/load functionality
+## Project Structure
+- `/client` - React frontend application
+- `/server` - Express backend server
+- `/docs` - Project documentation
 
-### Backend (`/server`)
-- Express server handling:
-  - User authentication via Google OAuth
-  - Design storage/retrieval with MongoDB
-  - File uploads to AWS S3
-  - Session management with express-session
-
-## Key Features
-- Interactive 3D shoe visualization
-- Real-time design customization
-- User authentication with Google
-- Design saving and loading
-- Image/texture upload capabilities
-- Design sharing functionality
-
-## Important Directories
-- `/client`: React frontend code
-- `/server`: Node.js backend code
-- `/docs`: Project documentation
-- `/public`: Static assets
-- `/src`: Source code
-
-## Environment Variables
+## Environment Setup
 Required environment variables:
-
-# MongoDB
+```
 MONGODB_URI=
-
-# AWS S3
 AWS_ACCESS_KEY_ID=
 AWS_SECRET_ACCESS_KEY=
 AWS_REGION=
 AWS_BUCKET_NAME=
-
-# Google OAuth
 GOOGLE_CLIENT_ID=
 GOOGLE_CLIENT_SECRET=
-
-# Session
 SESSION_SECRET=
+```
 
-## Development Commands
-- `npm run dev` - Start development environment (concurrent server & client)
-- `npm run dev:server` - Start backend with nodemon
-- `npm run dev:client` - Start React development server
-- `npm run build` - Build production frontend
-- `npm run start` - Start production server
-- `npm run fresh` - Clean install all dependencies
+## Development
+Main commands:
+- `npm run dev` - Start development environment
+- `npm run build` - Build for production
+- `npm run start` - Run production server
 - `npm run preview` - Preview production build locally
+- `npm run fresh` - Clean install dependencies
 
-## Deployment
-- Platform: AWS
-- Node.js Version: 20.11.1
-- NPM Version: >=10.2.4
+## System Requirements
+- Node.js: 20.11.1
+- NPM: >=10.2.4
 
-## Current Status
-Last Updated: February 2024
-- Successfully redeployed to AWS
-- Dependencies updated to latest versions
-- Core functionality maintained
-
-## Recent Updates
-- Updated Node.js to v20.11.1
-- Updated key dependencies:
-  - @aws-sdk/client-s3: ^3.515.0
-  - mongoose: ^8.1.3
-  - passport: ^0.7.0
-  - express-session: ^1.18.0
+## Key Features
+- Interactive 3D shoe designer
+- Real-time customization
+- Google authentication
+- Design saving and sharing
+- Custom texture upload support
 
 ## Next Steps
-[ ] Review and update frontend dependencies
-[ ] Test all core features after dependency updates
-[ ] Review and update AWS configuration
-[ ] Update documentation for new features
+Phase 1: Modernization
+[ ] Refactor codebase to follow current best practices
+[ ] Update all dependencies to latest stable versions
+[ ] Implement modern React patterns (hooks, context, etc.)
+[ ] Improve code organization and structure
+
+Phase 2: UI/UX Overhaul
+[ ] Redesign main interface with modern aesthetics
+[ ] Enhance user experience and interaction flows
+[ ] Implement responsive design improvements
+[ ] Create consistent design system
+[ ] Optimize 3D rendering performance
+
+Phase 3: Core Features
+[ ] Set up authentication system with Google OAuth
+[ ] Implement user profiles and accounts
+[ ] Add design gallery and sharing features
+[ ] Enhance customization options
+[ ] Improve texture and material handling
