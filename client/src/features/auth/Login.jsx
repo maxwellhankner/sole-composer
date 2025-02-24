@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from '../../features/landing/components/ui/button';
+import { Button } from '../../shared/ui/button';
+import { P } from '../../features/landing/components/ui/typography';
 
 function Login() {
   const loginWithGoogle = () => {
@@ -12,13 +13,31 @@ function Login() {
   };
 
   return (
-    <div className="max-w-[400px] mx-auto flex flex-col h-screen justify-center p-4">
-      <Button variant="outline" onClick={() => loginWithGoogle()}>
-        Login With Google
-      </Button>
-      <Link to="/">
-        <Button variant="outline">Back</Button>
-      </Link>
+    <div className="min-h-screen flex items-center justify-center bg-white">
+      <div className="max-w-[400px] w-full mx-auto flex flex-col items-center gap-6 p-8">
+        <div className="flex flex-col items-center gap-4 text-center">
+          <P className="text-2xl font-bold">Welcome Back</P>
+          <P className="text-gray-500">Sign in to continue to Sole Composer</P>
+        </div>
+        
+        <div className="flex flex-col w-full gap-3">
+          <Button 
+            variant="outline" 
+            onClick={() => loginWithGoogle()}
+            className="w-full"
+          >
+            Login With Google
+          </Button>
+          <Link to="/" className="w-full">
+            <Button 
+              variant="secondary"
+              className="w-full"
+            >
+              Back to Home
+            </Button>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }

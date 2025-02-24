@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button } from './components/ui/button';
+import { Button } from '../../shared/ui/button';
 import { Header } from './components/ui';
 import { H3, P } from './components/ui/typography';
 import { Carousel } from "./components/ui/carousel";

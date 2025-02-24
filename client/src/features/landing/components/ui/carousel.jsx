@@ -1,7 +1,7 @@
 import * as React from "react"
 import useEmblaCarousel from 'embla-carousel-react'
 import { ArrowLeft, ArrowRight } from "lucide-react"
-import { Button } from "./button"
+import { Button } from "../../../../shared/ui/button"
 
 function Carousel({ children, className }) {
   const [emblaRef, emblaApi] = useEmblaCarousel()

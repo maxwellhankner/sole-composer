@@ -1,9 +1,9 @@
-import React from 'react';
+import * as React from "react"
 import { Link } from 'react-router-dom';
-import { Button } from './button';
+import { Button } from '../../../../shared/ui/button';
 import { useUserContext } from '../../../../shared/context/UserContext';
 
-function Header() {
+export function Header() {
   const { userData } = useUserContext();
 
   return (
@@ -34,6 +34,4 @@ function Header() {
       <div className="w-full h-[46px]" /> {/* Spacer for fixed header */}
     </>
   );
-}
-
-export default Header; 
+} 
