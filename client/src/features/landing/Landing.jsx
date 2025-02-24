@@ -3,13 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
 import { Header } from '../../components/ui';
 import { H3, P } from '../../components/ui/typography';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "../../components/ui/carousel";
+import { Carousel } from "../../components/ui/carousel";
 import { FeaturedDesignCard } from '../../shared/ui/Cards';
 import LandingSplash from '../../shared/ui/LandingSplash';
 import MyDesigns from '../../shared/ui/MyDesigns';
@@ -67,15 +61,9 @@ const FeaturedSection = ({ designs, userData }) => {
       <H3 className="ml-4 mb-2">FEATURED</H3>
       <div className="relative">
         <Carousel className="w-full">
-          <CarouselContent>
-            {designs.map((design, index) => (
-              <CarouselItem key={index} className="basis-full md:basis-1/2 lg:basis-1/3">
-                <FeaturedDesignCard props={design} userData={userData} />
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious className="hidden md:-left-4 md:flex" />
-          <CarouselNext className="hidden md:-right-4 md:flex" />
+          {designs.map((design, index) => (
+            <FeaturedDesignCard key={index} props={design} userData={userData} />
+          ))}
         </Carousel>
       </div>
     </div>
