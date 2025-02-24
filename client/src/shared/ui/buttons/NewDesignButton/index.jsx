@@ -1,6 +1,6 @@
 import React from 'react';
-import { NewDesignButtonStyled } from './styledComponents';
 import { useNavigate } from 'react-router-dom';
+import { Button } from "@/components/ui/button"
 
 function NewDesignButton() {
   const navigate = useNavigate();
@@ -8,10 +8,14 @@ function NewDesignButton() {
   const handleClick = () => {
     navigate(`/designer`);
   };
+  
   return (
-    <NewDesignButtonStyled onClick={() => handleClick()}>
+    <Button 
+      onClick={handleClick}
+      className="px-6 py-3 text-sm tracking-widest hover:bg-primary/90"
+    >
       N E W &nbsp; D E S I G N
-    </NewDesignButtonStyled>
+    </Button>
   );
 }
 
