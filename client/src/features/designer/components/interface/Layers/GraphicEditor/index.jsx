@@ -16,12 +16,6 @@ import {
   InterfaceButton,
   InterfaceDoubleButtons,
 } from '../../../../ui';
-import {
-  GraphicEditorUpper,
-  GraphicEditorVisualContainer,
-  GraphicEditorButtons,
-  GraphicEditorButton,
-} from './styledComponents';
 
 function GraphicEditor({ props }) {
   const {
@@ -59,62 +53,85 @@ function GraphicEditor({ props }) {
 
   return (
     <LeftInterfaceContainer>
-      <GraphicEditorUpper>
-        <GraphicEditorButtons>
-          <GraphicEditorButton
-            id="up-button"
-            onClick={() => handleMoveGraphic('vert', -30)}
-          >
-            <FaArrowUp />
-          </GraphicEditorButton>
-          <GraphicEditorButton
-            id="down-button"
-            onClick={() => handleMoveGraphic('vert', 30)}
-          >
-            <FaArrowDown />
-          </GraphicEditorButton>
-          <GraphicEditorButton
-            id="left-button"
-            onClick={() => handleMoveGraphic('hor', -30)}
-          >
-            <FaArrowLeft />
-          </GraphicEditorButton>
-          <GraphicEditorButton
-            id="right-button"
-            onClick={() => handleMoveGraphic('hor', 30)}
-          >
-            <FaArrowRight />
-          </GraphicEditorButton>
-          <GraphicEditorButton
-            id="scale-up-button"
-            onClick={() => handleMoveGraphic('scale', 1.1)}
-          >
-            <FaArrowsAlt />
-          </GraphicEditorButton>
-          <GraphicEditorButton
-            id="scale-down-button"
-            onClick={() => handleMoveGraphic('scale', 0.9)}
-          >
-            <FaCompressArrowsAlt />
-          </GraphicEditorButton>
-          <GraphicEditorButton
-            id="clockwise-button"
-            onClick={() => handleMoveGraphic('rotate', 5)}
-          >
-            <FaRedoAlt />
-          </GraphicEditorButton>
-          <GraphicEditorButton
+      <div className="h-[300px] relative m-[6px]">
+        <div
+          id="graphic-visual-container"
+          className={`absolute inset-0 z-0 flex flex-col justify-center items-center ${currentShoe === 'left' ? 'scale-x-[-1]' : ''}`}
+          style={{
+            width: '100%',
+            height: '100%'
+          }}
+        ></div>
+        <div 
+          className="absolute h-full inset-0 grid grid-cols-[1fr_3fr_1fr_3fr_1fr] grid-rows-[1fr_3fr_1fr_3fr_1fr] z-[1]"
+          style={{
+            gridTemplateAreas: `
+              'counter . up . clock'
+              '. . . . .'
+              'left . . . right'
+              '. . . . .'
+              'compress . down . expand'
+            `
+          }}
+        >
+          <button
             id="counterclockwise-button"
             onClick={() => handleMoveGraphic('rotate', -5)}
+            className="bg-[#00000077] text-white w-10 h-10 border-none m-auto rounded-full p-0 text-xl flex flex-col justify-center items-center focus:outline-none"
           >
             <FaUndoAlt />
-          </GraphicEditorButton>
-        </GraphicEditorButtons>
-        <GraphicEditorVisualContainer
-          id="graphic-visual-container"
-          mirror={currentShoe === 'left'}
-        ></GraphicEditorVisualContainer>
-      </GraphicEditorUpper>
+          </button>
+          <button
+            id="up-button"
+            onClick={() => handleMoveGraphic('vert', -30)}
+            className="bg-[#00000077] text-white w-10 h-10 border-none m-auto rounded-full p-0 text-xl flex flex-col justify-center items-center focus:outline-none"
+          >
+            <FaArrowUp />
+          </button>
+          <button
+            id="clockwise-button"
+            onClick={() => handleMoveGraphic('rotate', 5)}
+            className="bg-[#00000077] text-white w-10 h-10 border-none m-auto rounded-full p-0 text-xl flex flex-col justify-center items-center focus:outline-none"
+          >
+            <FaRedoAlt />
+          </button>
+          <button
+            id="left-button"
+            onClick={() => handleMoveGraphic('hor', -30)}
+            className="bg-[#00000077] text-white w-10 h-10 border-none m-auto rounded-full p-0 text-xl flex flex-col justify-center items-center focus:outline-none"
+          >
+            <FaArrowLeft />
+          </button>
+          <button
+            id="right-button"
+            onClick={() => handleMoveGraphic('hor', 30)}
+            className="bg-[#00000077] text-white w-10 h-10 border-none m-auto rounded-full p-0 text-xl flex flex-col justify-center items-center focus:outline-none"
+          >
+            <FaArrowRight />
+          </button>
+          <button
+            id="scale-down-button"
+            onClick={() => handleMoveGraphic('scale', 0.9)}
+            className="bg-[#00000077] text-white w-10 h-10 border-none m-auto rounded-full p-0 text-xl flex flex-col justify-center items-center focus:outline-none"
+          >
+            <FaCompressArrowsAlt />
+          </button>
+          <button
+            id="down-button"
+            onClick={() => handleMoveGraphic('vert', 30)}
+            className="bg-[#00000077] text-white w-10 h-10 border-none m-auto rounded-full p-0 text-xl flex flex-col justify-center items-center focus:outline-none"
+          >
+            <FaArrowDown />
+          </button>
+          <button
+            id="scale-up-button"
+            onClick={() => handleMoveGraphic('scale', 1.1)}
+            className="bg-[#00000077] text-white w-10 h-10 border-none m-auto rounded-full p-0 text-xl flex flex-col justify-center items-center focus:outline-none"
+          >
+            <FaArrowsAlt />
+          </button>
+        </div>
+      </div>
       <InterfaceDoubleButtons>
         <InterfaceButtonBox>
           <InterfaceButton $active onClick={() => handleMoveGraphic('reset', 0)}>

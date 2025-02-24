@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import DesignerContainer from './components/DesignerContainer';
 import {
   createTexture,
@@ -6,15 +6,15 @@ import {
   createRedMapCanvas,
   createGraphicVisualCanvas,
 } from './utils/canvas';
-import { simpleFetch } from '../../shared/utils/helpers/fetchHelpers';
+import { simpleFetch } from './utils/helpers/fetchHelpers';
 import { useParams } from 'react-router-dom';
-import UserProvider from '../../shared/context/UserContext';
+import { useUserContext } from '../../shared/context/UserContext';
 import Scene from './components/scene';
 import Interface from './components/interface/Interface';
 
 function Designer() {
   const { id } = useParams();
-  const userData = useContext(UserProvider.context);
+  const { userData } = useUserContext();
 
   const [designSpec, setDesignSpec] = useState(null);
   const [graphicVisualCanvas, setGraphicVisualCanvas] = useState(null);

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { simpleFetch } from '../../../shared/utils/helpers/fetchHelpers';
+import { simpleFetch } from '../../../features/designer/utils/helpers/fetchHelpers';
 
 export const useMyDesigns = (userData) => {
   const [myDesigns, setMyDesigns] = useState(null);
