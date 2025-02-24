@@ -15,8 +15,7 @@ function LandingSplash() {
             Create Something New
           </H1>
           <P className="text-lg">
-            Sole Composer gives you the ability to design and visualize
-            one&#8209;of&#8209;a&#8209;kind sneakers.
+            Sole Composer is a 3D tool that allows you to design and visualize custom sneakers.
           </P>
           <Button 
             variant="outline"
