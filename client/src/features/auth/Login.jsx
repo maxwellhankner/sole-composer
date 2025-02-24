@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { LoginContainer } from './Login.styles';
-import { MenuButton } from '../../shared/ui/Buttons';
+import { Button } from '../../components/ui/button';
 
 function Login() {
   const loginWithGoogle = () => {
@@ -14,11 +14,11 @@ function Login() {
 
   return (
     <LoginContainer>
-      <MenuButton google onClick={() => loginWithGoogle()}>
+      <Button variant="outline" onClick={() => loginWithGoogle()}>
         Login With Google
-      </MenuButton>
+      </Button>
       <Link to="/">
-        <MenuButton>Back</MenuButton>
+        <Button variant="outline">Back</Button>
       </Link>
     </LoginContainer>
   );

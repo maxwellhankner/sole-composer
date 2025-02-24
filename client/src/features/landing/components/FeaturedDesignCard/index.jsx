@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { H3, P } from '../../../../components/ui/typography';
 
 function FeaturedDesignCard({ props }) {
   const { _id, title, configId, author, screenshot } = props;
@@ -12,9 +13,9 @@ function FeaturedDesignCard({ props }) {
   return (
     <div 
       onClick={handleClick}
-      className="cursor-pointer rounded-lg bg-white shadow-md hover:shadow-lg transition-shadow duration-200 overflow-hidden"
+      className="cursor-pointer rounded-md bg-white border border-black/10 hover:border-black/20 shadow-sm hover:shadow transition-all duration-200 overflow-hidden"
     >
-      <div className="relative w-full aspect-square overflow-hidden bg-gray-100">
+      <div className="relative w-full aspect-square overflow-hidden bg-gray-50">
         <img 
           src={`api/assets/images/${screenshot}`} 
           alt="feature-design"
@@ -23,12 +24,12 @@ function FeaturedDesignCard({ props }) {
       </div>
 
       <div className="p-4 space-y-2">
-        <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
-        <p className="text-sm text-gray-600">{configId.modelName}</p>
-        <p className="text-sm text-gray-500">{author.firstName}</p>
+        <H3 className="text-lg">{title}</H3>
+        <P className="text-sm text-gray-600">{configId.modelName}</P>
+        <P className="text-sm text-gray-500">{author.firstName}</P>
       </div>
     </div>
   );
 }
 
-export default FeaturedDesignCard;
+export default FeaturedDesignCard; 

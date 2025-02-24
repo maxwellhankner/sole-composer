@@ -1,8 +1,8 @@
 import React from 'react';
-import { Button } from '../../../components/ui/button';
-import { H1, P } from '../../../components/ui/typography';
+import { Button } from '../../../../components/ui/button';
+import { H1, P } from '../../../../components/ui/typography';
 import { useNavigate } from 'react-router-dom';
-import soleCover from '../../../assets/sole-cover.png';
+import soleCover from '../../../../assets/sole-cover.png';
 
 function LandingSplash() {
   const navigate = useNavigate();
@@ -34,4 +34,4 @@ function LandingSplash() {
   );
 }
 
-export default LandingSplash;
+export default LandingSplash; 

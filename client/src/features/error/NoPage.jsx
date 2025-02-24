@@ -1,16 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { NoPageContainer } from './NoPage.styles';
-import { MenuButton } from '../../shared/ui/Buttons';
-import { MenuPara } from '../../shared/ui/Text';
+import { P } from '../../components/ui/typography';
 
 function NoPage() {
   return (
     <NoPageContainer>
-      <MenuPara>404 - PAGE NOT FOUND</MenuPara>
-      <Link to="/">
-        <MenuButton>Home</MenuButton>
-      </Link>
+      <P>Page Not Found</P>
+      <Link to="/">Return Home</Link>
     </NoPageContainer>
   );
 }
