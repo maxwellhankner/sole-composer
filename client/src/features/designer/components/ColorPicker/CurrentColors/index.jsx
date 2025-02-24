@@ -1,19 +1,19 @@
 import React from 'react';
-import { CurrentColorsScroll, CurrentColorsOption } from './styledComponents';
 import { InterfaceButtonBox } from '../../../designerui';
 
 function CurrentColors({ colorsArray, handleColorChange }) {
   return (
     <InterfaceButtonBox>
-      <CurrentColorsScroll>
+      <div className="w-full min-w-0 flex flex-[0_1_auto] overflow-auto rounded scrollbar-hide">
         {colorsArray.map((color, i) => (
-          <CurrentColorsOption
-            color={color}
+          <button
+            className="w-[38px] h-[38px] mr-[3px] rounded flex-none border-none focus:outline-none last:mr-0"
+            style={{ backgroundColor: color }}
             key={i}
             onClick={() => handleColorChange(color)}
-          ></CurrentColorsOption>
+          />
         ))}
-      </CurrentColorsScroll>
+      </div>
     </InterfaceButtonBox>
   );
 }

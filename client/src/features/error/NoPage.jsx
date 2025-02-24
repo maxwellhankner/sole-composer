@@ -1,14 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { NoPageContainer } from './NoPage.styles';
-import { P } from '../../components/ui/typography';
+import { P } from '../../features/landing/components/ui/typography';
 
 function NoPage() {
   return (
-    <NoPageContainer>
+    <div className="max-w-[400px] mx-auto flex flex-col p-4">
       <P>Page Not Found</P>
       <Link to="/">Return Home</Link>
-    </NoPageContainer>
+    </div>
   );
 }
 

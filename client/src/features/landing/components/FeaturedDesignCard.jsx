@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { H3, P } from '../../../../components/ui/typography';
+import { H3, P } from './ui/typography';
 
 function FeaturedDesignCard({ props }) {
   const { _id, title, configId, author, screenshot } = props;

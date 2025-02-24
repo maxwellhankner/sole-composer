@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useUserContext } from '../../shared/context/UserContext';
-import { ProfileContainer } from './Profile.styles';
-import { P } from '../../components/ui/typography';
-import { Button } from '../../components/ui/button';
+import { P } from '../../features/landing/components/ui/typography';
+import { Button } from '../../features/landing/components/ui/button';
 
 function Profile() {
   const { userData } = useUserContext();
@@ -17,11 +16,11 @@ function Profile() {
   };
 
   return (
-    <ProfileContainer>
+    <div className="max-w-[400px] mx-auto flex flex-col p-4">
       <P>Profile</P>
       <Link to="/">Return Home</Link>
       <Button onClick={() => handleLogout()}>Log Out</Button>
-    </ProfileContainer>
+    </div>
   );
 }
 

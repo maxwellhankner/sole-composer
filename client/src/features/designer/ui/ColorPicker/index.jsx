@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import { CustomPicker } from 'react-color';
 import CurrentColors from './CurrentColors';
 import {
@@ -8,26 +7,15 @@ import {
   Saturation,
 } from 'react-color/lib/components/common';
 import {
-  CustomColorContainer,
-  HueContainer,
-  SaturationContainer,
-  CustomColorInputContainer,
-  CustomColorInputSwatch,
-} from './styledComponents';
-import {
   CustomColorPointer,
   CustomColorPointerOffset,
-} from './CustomColorPointers';
+} from './CustomColorPointers/index.jsx';
 import {
   InterfaceSingleButtons,
   InterfaceDoubleButtons,
   InterfaceButton,
   InterfaceButtonBox,
 } from '../';
-
-const ColorPickerWrapper = styled.div`
-  /* Wrapper to prevent props from being passed to DOM */
-`;
 
 export const CustomColor = ({
   hex,
@@ -38,28 +26,28 @@ export const CustomColor = ({
   colorsArray,
 }) => {
   return (
-    <ColorPickerWrapper>
-      <CustomColorContainer>
+    <div>
+      <div>
         <InterfaceSingleButtons>
           <InterfaceButtonBox>
-            <HueContainer>
+            <div className="h-5 relative overflow-hidden border border-[#343434] rounded">
               <Hue
                 hsl={hsl}
                 onChange={onChange}
                 pointer={CustomColorPointerOffset}
               />
-            </HueContainer>
+            </div>
           </InterfaceButtonBox>
 
           <InterfaceButtonBox>
-            <SaturationContainer>
+            <div className="w-full h-[120px] relative overflow-hidden border border-[#343434] rounded">
               <Saturation
                 hsl={hsl}
                 hsv={hsv}
                 onChange={onChange}
                 pointer={CustomColorPointer}
               />
-            </SaturationContainer>
+            </div>
           </InterfaceButtonBox>
 
           {colorsArray && (
@@ -88,18 +76,22 @@ export const CustomColor = ({
           </InterfaceButtonBox>
 
           <InterfaceButtonBox>
-            <CustomColorInputContainer>
-              <EditableInput
-                className="editable-input"
+            <div className="rounded flex justify-between w-full min-w-0">
+              <input
+                type="text"
                 value={hex}
-                onChange={onChange}
+                onChange={(e) => onChange({ hex: e.target.value })}
+                className="w-full h-[38px] mr-[3px] border border-white rounded text-sm pl-2 pr-0 shadow-none appearance-none"
               />
-              <CustomColorInputSwatch color={hex} />
-            </CustomColorInputContainer>
+              <div
+                className="flex-none w-[38px] h-[38px] ml-[3px] rounded"
+                style={{ backgroundColor: hex }}
+              />
+            </div>
           </InterfaceButtonBox>
         </InterfaceDoubleButtons>
-      </CustomColorContainer>
-    </ColorPickerWrapper>
+      </div>
+    </div>
   );
 };
 

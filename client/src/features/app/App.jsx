@@ -17,10 +17,6 @@ const theme = {
   }
 };
 
-// Custom shouldForwardProp function to filter specific props
-const shouldForwardProp = prop => 
-  !['hsl', 'hsv', 'pointer'].includes(prop);
-
 const GlobalStyle = createGlobalStyle`
   /* Box sizing rules */
   *,
@@ -103,7 +99,7 @@ const GlobalStyle = createGlobalStyle`
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <StyleSheetManager shouldForwardProp={shouldForwardProp}>
+      <StyleSheetManager>
         <GlobalStyle />
         <AppContainer>
           <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>

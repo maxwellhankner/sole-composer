@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { LoginContainer } from './Login.styles';
-import { Button } from '../../components/ui/button';
+import { Button } from '../../features/landing/components/ui/button';
 
 function Login() {
   const loginWithGoogle = () => {
@@ -13,14 +12,14 @@ function Login() {
   };
 
   return (
-    <LoginContainer>
+    <div className="max-w-[400px] mx-auto flex flex-col h-screen justify-center p-4">
       <Button variant="outline" onClick={() => loginWithGoogle()}>
         Login With Google
       </Button>
       <Link to="/">
         <Button variant="outline">Back</Button>
       </Link>
-    </LoginContainer>
+    </div>
   );
 }
 
