@@ -1,13 +1,6 @@
 import React from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { handleConvertPartName } from '../../../../../utils/helpers/convertPartNames';
-import {
-  PartSelectorContainer,
-  PartSelectorTitle,
-  PartSelectorButton,
-  PartSelectorButtonBox,
-  PartSelectorTitleBox,
-} from './styledComponents';
 import { InterfaceSingleButtons } from '../../../../../ui';
 
 function PartSelector({
@@ -42,54 +35,54 @@ function PartSelector({
 
   return (
     <InterfaceSingleButtons>
-      <PartSelectorContainer>
-        <PartSelectorButtonBox>
-          <PartSelectorButton
-            $active
+      <div className="flex w-full justify-center">
+        <div className="box-border border border-[#343434] rounded-[6px] bg-black p-[3px]">
+          <button
+            className="box-border border border-[#343434] rounded-[4px] text-white w-[38px] h-[38px] bg-[#212121] p-0 text-base flex flex-col justify-center items-center focus:outline-none [&>svg]:text-white"
             onClick={() => {
               handlePartChange(-1);
               setCurrentLayer(-1);
             }}
           >
             <FaChevronLeft />
-          </PartSelectorButton>
-        </PartSelectorButtonBox>
+          </button>
+        </div>
 
-        <PartSelectorButtonBox>
-          <PartSelectorButton
-            $active
+        <div className="box-border border border-[#343434] rounded-[6px] bg-black p-[3px]">
+          <button
+            className="box-border border border-[#343434] rounded-[4px] text-white w-[38px] h-[38px] bg-[#212121] p-0 text-base flex flex-col justify-center items-center focus:outline-none"
             onClick={() => {
               handleShoeChange(-1);
               setCurrentLayer(-1);
             }}
           >
             {currentShoe[0].toUpperCase()}
-          </PartSelectorButton>
-        </PartSelectorButtonBox>
+          </button>
+        </div>
 
-        <PartSelectorTitleBox>
-          <PartSelectorTitle
-            className="partname-button"
+        <div className="w-full min-w-0 box-border border border-[#343434] rounded-[6px] bg-black p-[3px]">
+          <button
+            className="w-full h-[38px] text-center border border-[#343434] bg-[#212121] text-white text-base p-0 flex flex-col justify-center items-center focus:outline-none"
             onClick={() => {
               setLayersView('PartList');
             }}
           >
             {handleConvertPartName(arrayOfParts[currentPart])}
-          </PartSelectorTitle>
-        </PartSelectorTitleBox>
+          </button>
+        </div>
 
-        <PartSelectorButtonBox>
-          <PartSelectorButton
-            $active
+        <div className="box-border border border-[#343434] rounded-[6px] bg-black p-[3px]">
+          <button
+            className="box-border border border-[#343434] rounded-[4px] text-white w-[38px] h-[38px] bg-[#212121] p-0 text-base flex flex-col justify-center items-center focus:outline-none [&>svg]:text-white"
             onClick={() => {
               handlePartChange(1);
               setCurrentLayer(-1);
             }}
           >
             <FaChevronRight />
-          </PartSelectorButton>
-        </PartSelectorButtonBox>
-      </PartSelectorContainer>
+          </button>
+        </div>
+      </div>
     </InterfaceSingleButtons>
   );
 }

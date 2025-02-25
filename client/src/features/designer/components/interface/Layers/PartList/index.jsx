@@ -6,12 +6,6 @@ import {
   InterfaceButtonBox,
   InterfaceButton
 } from '../../../../ui';
-import {
-  PartsBox,
-  AnotherPartsScrollBox,
-  PartsScrollBox,
-  PartButton,
-} from './styledComponents';
 
 function PartList({ props }) {
   const {
@@ -25,13 +19,17 @@ function PartList({ props }) {
   return (
     <LeftInterfaceContainer>
       <InterfaceTitle>Select Part</InterfaceTitle>
-      <PartsBox>
-        <AnotherPartsScrollBox>
-          <PartsScrollBox>
+      <div className="flex flex-col overflow-hidden h-[220px] m-[6px] border border-[#343434] rounded-[6px] bg-black">
+        <div className="flex flex-col overflow-auto">
+          <div className="grid grid-cols-2 gap-[6px]">
             {design.configData.partsArray.map((part, i) => (
-              <PartButton
+              <button
                 key={i}
-                $active={currentPartName === part}
+                className={`box-border ${
+                  currentPartName === part 
+                    ? 'text-white bg-[#212121] border-[#343434]' 
+                    : 'text-[#999999] bg-black border-black'
+                } border rounded-[4px] m-[3px] h-[40px] text-base capitalize overflow-hidden`}
                 onClick={() => {
                   setCurrentLayer(-1);
                   setCurrentPart(i);
@@ -39,11 +37,11 @@ function PartList({ props }) {
                 }}
               >
                 {part}
-              </PartButton>
+              </button>
             ))}
-          </PartsScrollBox>
-        </AnotherPartsScrollBox>
-      </PartsBox>
+          </div>
+        </div>
+      </div>
 
       <InterfaceSingleButtons>
         <InterfaceButtonBox>
