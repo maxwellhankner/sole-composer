@@ -10,7 +10,6 @@ import {
   InterfaceIconButton,
   InterfaceTitleBox,
 } from './styledComponents';
-import LoadingSpinner from './LoadingSpinner';
 import ColorPicker from './ColorPicker';
 
 export {
@@ -24,6 +23,5 @@ export {
   InterfaceIconButtonBox,
   InterfaceIconButton,
   InterfaceTitleBox,
-  LoadingSpinner,
   ColorPicker,
 };
