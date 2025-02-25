@@ -27,8 +27,10 @@ function DesignMenu({
   setCameraReset,
 }) {
   const [loading, setLoading] = useState(false);
-  let userId;
-  if (typeof userData === 'object' && '_id' in userData) {
+  
+  // Safely access userData properties with null checks
+  let userId = null;
+  if (userData && typeof userData === 'object' && '_id' in userData) {
     userId = userData._id;
   }
 

@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useUserContext } from '../../shared/context/UserContext';
-import { P } from '../../features/landing/components/ui/typography';
+import { P } from '../../shared/ui/typography';
 import { Button } from '../../shared/ui/button';
 
 function Profile() {
-  const { userData } = useUserContext();
+  const { userData, isLoading, error } = useUserContext();
 
   const handleLogout = () => {
     if (process.env.NODE_ENV === 'production') {
@@ -14,6 +14,22 @@ function Profile() {
       window.open(`http://localhost:8000/auth/logout`, '_self');
     }
   };
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-white">
+        <P>Loading...</P>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-white">
+        <P className="text-red-500">Error: {error}</P>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-white">

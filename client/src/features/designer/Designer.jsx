@@ -9,12 +9,13 @@ import {
 import { simpleFetch } from './utils/helpers/fetchHelpers';
 import { useParams } from 'react-router-dom';
 import { useUserContext } from '../../shared/context/UserContext';
-import Scene from './components/scene';
-import Interface from './components/interface/Interface';
+import { P } from '../../shared/ui/typography';
 
 function Designer() {
   const { id } = useParams();
-  const { userData } = useUserContext();
+  // userData can be null if user is not logged in, and that's okay
+  // Designer will still work but with limited functionality
+  const { userData, isLoading, error } = useUserContext();
 
   const [designSpec, setDesignSpec] = useState(null);
   const [graphicVisualCanvas, setGraphicVisualCanvas] = useState(null);
@@ -73,6 +74,22 @@ function Designer() {
     }
   }, [rightTextureCanvas, leftTextureCanvas]);
 
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-white">
+        <P>Loading user data...</P>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-white">
+        <P className="text-red-500">Error: {error}</P>
+      </div>
+    );
+  }
+
   const initialized =
     designSpec &&
     graphicVisualCanvas &&
@@ -104,7 +121,9 @@ function Designer() {
       />
     );
   } else {
-    return <div></div>;
+    return (
+      <div />
+    );
   }
 }
 
