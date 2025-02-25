@@ -1,5 +1,4 @@
 import React from 'react';
-import { VisibilityContainer } from './styledComponents';
 import Toggle from './Toggle';
 import { LeftInterfaceContainer } from '../../../ui';
 
@@ -10,7 +9,7 @@ function Visibility({
   setShoeVisibility,
 }) {
   return (
-    <VisibilityContainer>
+    <div className="w-1/2 ml-auto bg-[#212121] rounded-[9px]">
       <LeftInterfaceContainer>
         <Toggle
           currentShoe={currentShoe}
@@ -19,7 +18,7 @@ function Visibility({
           setVisibility={setShoeVisibility}
         />
       </LeftInterfaceContainer>
-    </VisibilityContainer>
+    </div>
   );
 }
 

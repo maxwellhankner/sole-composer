@@ -3,26 +3,6 @@ import { handleConvertPartName } from '../../../../utils/helpers/convertPartName
 import { FaChevronUp, FaChevronDown, FaPlus, FaTrash } from 'react-icons/fa';
 import PartSelector from './PartSelector';
 import {
-  LayersMainContainer,
-  LayersMainDivider,
-  LayersMainControlsContainer,
-  LayersMainControlsLeft,
-  LayersMainControlsTitle,
-  LayersMainControlsRight,
-  LayersBox,
-  LayersScrollBox,
-  AnotherScrollBox,
-  LayerItem,
-  LayerItemLeft,
-  LayerItemRight,
-  LayerItemRightTitle,
-} from './styledComponents';
-import {
-  LeftInterfaceContainer,
-  InterfaceSingleButtons,
-  InterfaceButtonBox,
-  InterfaceButton,
-  InterfaceTitleAndIcon,
   InterfaceIconButtonBox,
   InterfaceIconButton
 } from '../../../../ui';
@@ -44,8 +24,6 @@ function LayersMain({ props }) {
     setCurrentShoe,
   } = props;
 
-  // These two functions just double check
-  // Could do conditional in components onClick
   const deleteLayer = (index) => {
     if (index !== -1) {
       if (allLayers[index].type !== 'overlay') {
@@ -76,7 +54,7 @@ function LayersMain({ props }) {
   };
 
   return (
-    <LayersMainContainer>
+    <div>
       <PartSelector
         design={design}
         currentPart={currentPart}
@@ -87,13 +65,13 @@ function LayersMain({ props }) {
         setCurrentShoe={setCurrentShoe}
       />
 
-      <LayersMainDivider />
+      <div className="h-[5px] bg-black border-t border-b border-[#343434] border-x-0"></div>
 
-      <LayersMainControlsContainer>
-        <LayersMainControlsLeft>
-          <LayersMainControlsTitle>Layers</LayersMainControlsTitle>
-        </LayersMainControlsLeft>
-        <LayersMainControlsRight>
+      <div className="m-[6px] flex justify-between">
+        <div className="flex flex-col justify-center">
+          <p className="text-base text-white m-0 pl-[6px]">Layers</p>
+        </div>
+        <div className="flex [&>svg]:text-white">
           <InterfaceIconButtonBox>
             <InterfaceIconButton
               $active={
@@ -131,15 +109,20 @@ function LayersMain({ props }) {
               <FaPlus />
             </InterfaceIconButton>
           </InterfaceIconButtonBox>
-        </LayersMainControlsRight>
-      </LayersMainControlsContainer>
+        </div>
+      </div>
 
-      <LayersBox id="layers-box" onClick={(e) => setNoCurrentLayer(e)}>
-        <AnotherScrollBox>
-          <LayersScrollBox>
+      <div 
+        id="layers-box" 
+        onClick={(e) => setNoCurrentLayer(e)}
+        className="flex flex-col overflow-hidden h-[150px] m-[6px] border border-[#343434] rounded-[6px] bg-black p-[3px]"
+      >
+        <div className="flex flex-col overflow-auto">
+          <div className="flex flex-col-reverse justify-end rounded-[4px]">
             {allLayers.map((layer, i) => (
-              <LayerItem
+              <div
                 key={i}
+                className="h-[40px] flex-shrink-0 flex flex-row mb-[3px] text-base capitalize overflow-hidden first:mb-0"
                 onClick={() => {
                   if (i === currentLayer) {
                     handleEditLayer(i, layer);
@@ -148,62 +131,53 @@ function LayersMain({ props }) {
                   }
                 }}
               >
-                {layer.type === 'color' ? (
-                  <LayerItemLeft
-                    style={{
-                      backgroundColor: layer.color,
-                    }}
-                  ></LayerItemLeft>
-                ) : layer.type === 'graphic' ? (
-                  <LayerItemLeft>
+                <div className="w-[40px] mr-[3px] flex flex-col rounded-[4px] bg-[#212121]">
+                  {layer.type === 'color' ? (
+                    <div
+                      className="w-full h-full"
+                      style={{
+                        backgroundColor: layer.color,
+                      }}
+                    ></div>
+                  ) : layer.type === 'graphic' ? (
                     <img
                       src={`/api/assets/images/${layer.link}`}
-                      style={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover',
-                      }}
+                      className="w-full h-full object-cover"
                       alt="design-graphic"
                     />
-                  </LayerItemLeft>
-                ) : layer.type === 'mask' ? (
-                  <LayerItemLeft>
+                  ) : layer.type === 'mask' ? (
                     <img
                       src={`/api/assets/designimages/${layer.link}`}
-                      style={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover',
-                      }}
+                      className="w-full h-full object-cover"
                       alt="design-graphic"
                     />
-                  </LayerItemLeft>
-                ) : (
-                  <LayerItemLeft>
+                  ) : (
                     <img
                       src={`/api/assets/designimages/${layer.source}Mask.png`}
-                      style={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover',
-                      }}
+                      className="w-full h-full object-cover"
                       alt="design-graphic"
                     />
-                  </LayerItemLeft>
-                )}
-                <LayerItemRight $active={i === currentLayer}>
-                  <LayerItemRightTitle>
+                  )}
+                </div>
+                <div 
+                  className={`flex-grow flex flex-col justify-center rounded-[4px] ${
+                    i === currentLayer 
+                      ? 'bg-[#EEEEEE] text-black border border-[#EEEEEE]' 
+                      : 'bg-[#212121] text-[#EEEEEE] border border-[#343434]'
+                  }`}
+                >
+                  <p className="m-0 pl-[10px]">
                     {layer.type === 'overlay'
                       ? handleConvertPartName(layer.source).toLowerCase()
                       : layer.type}
-                  </LayerItemRightTitle>
-                </LayerItemRight>
-              </LayerItem>
+                  </p>
+                </div>
+              </div>
             ))}
-          </LayersScrollBox>
-        </AnotherScrollBox>
-      </LayersBox>
-    </LayersMainContainer>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 

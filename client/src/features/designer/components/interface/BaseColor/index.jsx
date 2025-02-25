@@ -10,7 +10,6 @@ import {
   InterfaceIconButtonBox,
   InterfaceIconButton,
 } from '../../../ui';
-import { BaseColorRadioBox, BaseColorOption } from './styledComponents';
 import { FaCheck } from 'react-icons/fa';
 
 function ChangeBaseColor({
@@ -135,32 +134,38 @@ function ChangeBaseColor({
   return (
     <LeftInterfaceContainer>
       <InterfaceSingleButtons>
-        <BaseColorRadioBox>
-          <BaseColorOption
-            $active={radioOption === 'left'}
+        <div className="box-border bg-black rounded-[6px] border border-[#343434] flex flex-row p-[3px]">
+          <button
+            className={`box-border text-base ${
+              radioOption === 'left' ? 'text-white bg-[#212121] border-[#343434]' : 'text-[#999999] bg-black border-black'
+            } border rounded-[3px] w-full h-[38px] flex justify-center items-center`}
             onClick={() => {
               handleRadioOption('left');
             }}
           >
             Left
-          </BaseColorOption>
-          <BaseColorOption
-            $active={radioOption === 'both'}
+          </button>
+          <button
+            className={`box-border text-base ${
+              radioOption === 'both' ? 'text-white bg-[#212121] border-[#343434]' : 'text-[#999999] bg-black border-black'
+            } border rounded-[3px] w-full h-[38px] flex justify-center items-center`}
             onClick={() => {
               handleRadioOption('both');
             }}
           >
             Both
-          </BaseColorOption>
-          <BaseColorOption
-            $active={radioOption === 'right'}
+          </button>
+          <button
+            className={`box-border text-base ${
+              radioOption === 'right' ? 'text-white bg-[#212121] border-[#343434]' : 'text-[#999999] bg-black border-black'
+            } border rounded-[3px] w-full h-[38px] flex justify-center items-center`}
             onClick={() => {
               handleRadioOption('right');
             }}
           >
             Right
-          </BaseColorOption>
-        </BaseColorRadioBox>
+          </button>
+        </div>
       </InterfaceSingleButtons>
 
       <ColorPicker

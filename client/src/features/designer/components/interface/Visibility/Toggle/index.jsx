@@ -1,6 +1,5 @@
 import React from 'react';
 // import { FaEye } from 'react-icons/fa';
-import { ToggleOptionBox, ToggleOptionButton } from './styledComponents';
 import { InterfaceSingleButtons } from '../../../../ui';
 
 function Toggle({ setCurrentShoe, visibility, setVisibility }) {
@@ -46,26 +45,34 @@ function Toggle({ setCurrentShoe, visibility, setVisibility }) {
 
   return (
     <InterfaceSingleButtons>
-      <ToggleOptionBox>
-        <ToggleOptionButton
-          $active={visibility.left}
+      <div className="border border-[#343434] rounded-[6px] bg-black p-[3px]">
+        <button
+          className={`rounded-[4px] w-full h-[38px] p-0 text-base focus:outline-none ${
+            visibility.left
+              ? 'border border-[#343434] bg-[#212121] text-white'
+              : 'border-none bg-black text-[#999999]'
+          }`}
           onClick={() => {
             hanleShoeVisibility('left');
           }}
         >
           Left
-        </ToggleOptionButton>
-      </ToggleOptionBox>
-      <ToggleOptionBox>
-        <ToggleOptionButton
-          $active={visibility.right}
+        </button>
+      </div>
+      <div className="border border-[#343434] rounded-[6px] bg-black p-[3px]">
+        <button
+          className={`rounded-[4px] w-full h-[38px] p-0 text-base focus:outline-none ${
+            visibility.right
+              ? 'border border-[#343434] bg-[#212121] text-white'
+              : 'border-none bg-black text-[#999999]'
+          }`}
           onClick={() => {
             hanleShoeVisibility('right');
           }}
         >
           Right
-        </ToggleOptionButton>
-      </ToggleOptionBox>
+        </button>
+      </div>
     </InterfaceSingleButtons>
   );
 }
