@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { P } from '../../features/landing/components/ui/typography';
+import { P } from '../../shared/ui/typography';
 import { Button } from '../../shared/ui/button';
 
 function NoPage() {

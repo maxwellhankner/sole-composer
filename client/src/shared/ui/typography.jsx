@@ -1,4 +1,4 @@
-import { cn } from "../../../../lib/utils";
+import { cn } from "../../lib/utils";
 
 export function H1({ children, className, ...props }) {
   return (
@@ -39,6 +39,20 @@ export function H3({ children, className, ...props }) {
     >
       {children}
     </h3>
+  );
+}
+
+export function H4({ children, className, ...props }) {
+  return (
+    <h4 
+      className={cn(
+        "scroll-m-20 text-xl font-semibold tracking-tight font-poppins",
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </h4>
   );
 }
 

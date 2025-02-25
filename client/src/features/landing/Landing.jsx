@@ -2,17 +2,16 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../../shared/ui/button';
 import { Header, Footer } from './components/ui';
-import { H3, P } from './components/ui/typography';
-import { Carousel } from "./components/ui/carousel";
-import FeaturedDesignCard from './components/FeaturedDesignCard';
 import LandingSplash from './components/LandingSplash';
-import MyDesigns from './components/MyDesigns';
+import FeaturedSection from './components/FeaturedSection';
+import MyDesignsSection from './components/MyDesignsSection';
 import { useFeaturedDesigns } from './hooks/useFeaturedDesigns';
 import { useMyDesigns } from './hooks/useMyDesigns';
 import { useUserContext } from '../../shared/context/UserContext';
+import { P } from '../../shared/ui/typography';
 
 function Landing() {
-  const { userData } = useUserContext();
+  const { userData, isLoading, error } = useUserContext();
   const { featured } = useFeaturedDesigns();
   const { myDesigns } = useMyDesigns(userData);
   const navigate = useNavigate();
@@ -21,55 +20,35 @@ function Landing() {
     <div className="h-full font-roboto">
       <Header />
 
-      {!userData && <LandingSplash />}
+      {isLoading ? (
+        <div className="py-16 text-center">
+          <P>Loading...</P>
+        </div>
+      ) : (
+        <>
+          {!userData && <LandingSplash />}
 
-      <div className="w-full px-4 md:max-w-[1100px] md:mx-auto">
-        <FeaturedSection designs={featured?.featured} userData={userData} />
-        
-        {userData && (
-          <Button 
-            variant="outline"
-            className="mx-auto block"
-            onClick={() => navigate('/designer')}
-          >
-            NEW DESIGN
-          </Button>
-        )}
+          <div className="w-full px-4 md:max-w-[1100px] md:mx-auto">
+            <FeaturedSection designs={featured?.featured} userData={userData} />
+            
+            {userData && (
+              <Button 
+                variant="outline"
+                className="mx-auto block"
+                onClick={() => navigate('/designer')}
+              >
+                NEW DESIGN
+              </Button>
+            )}
 
-        <MyDesignsSection designs={myDesigns} />
-      </div>
+            <MyDesignsSection designs={myDesigns} />
+          </div>
+        </>
+      )}
 
       <Footer />
     </div>
   );
 }
-
-const FeaturedSection = ({ designs, userData }) => {
-  if (!designs) return null;
-
-  return (
-    <div className="w-full mb-8">
-      <H3 className="ml-4 mb-2">FEATURED</H3>
-      <div className="relative">
-        <Carousel className="w-full">
-          {designs.map((design, index) => (
-            <FeaturedDesignCard key={index} props={design} userData={userData} />
-          ))}
-        </Carousel>
-      </div>
-    </div>
-  );
-};
-
-const MyDesignsSection = ({ designs }) => {
-  if (!designs) return null;
-
-  return (
-    <>
-      <H3 className="ml-4 mb-2">MY DESIGNS</H3>
-      <MyDesigns myDesigns={designs} />
-    </>
-  );
-};
 
 export default Landing;
