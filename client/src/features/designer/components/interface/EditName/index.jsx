@@ -6,8 +6,9 @@ import {
   InterfaceButtonBox,
   InterfaceButton,
   InterfaceTitleAndIcon,
+  InterfaceTitleBox,
+  InterfaceTitle,
 } from '../../../ui';
-import { EditNameInput } from './styledComponents';
 
 function EditName({ handleViewChange, design, setDesign, setCanSave }) {
   const handleUpdateDesignName = () => {
@@ -30,11 +31,12 @@ function EditName({ handleViewChange, design, setDesign, setCanSave }) {
       </InterfaceTitleAndIcon>
       <InterfaceSingleButtons>
         <InterfaceButtonBox>
-          <EditNameInput
+          <input
             type="text"
             id="design-name-input"
             defaultValue={design.title}
-          ></EditNameInput>
+            className="block text-[18px] outline-none w-full box-border border-none rounded-[3px] h-[38px] pl-[10px]"
+          />
         </InterfaceButtonBox>
         <InterfaceButtonBox>
           <InterfaceButton $active onClick={() => handleUpdateDesignName()}>

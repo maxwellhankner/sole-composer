@@ -1,9 +1,4 @@
 import React, { useState } from 'react';
-import {
-  InterfaceContainer,
-  InterfaceLeft,
-  InterfaceRight,
-} from './styledComponents';
 import DesignerNav from './Nav';
 import DesignInfo from './DesignInfo';
 import DesignMenu from './DesignMenu';
@@ -113,12 +108,14 @@ function Interface({
   }
 
   return (
-    <InterfaceContainer>
-      <InterfaceLeft>{ComponenetToRender}</InterfaceLeft>
-      <InterfaceRight>
+    <div className="fixed bottom-0 w-full sm:w-[400px] sm:right-0 touch-none flex pb-[30px]">
+      <div className="flex-1 sm:w-[330px] flex flex-col justify-end ml-4">
+        {ComponenetToRender}
+      </div>
+      <div className="w-[70px] flex flex-col justify-end">
         <DesignerNav handleViewChange={handleViewChange} view={view} />
-      </InterfaceRight>
-    </InterfaceContainer>
+      </div>
+    </div>
   );
 }
 

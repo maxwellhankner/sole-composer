@@ -1,12 +1,11 @@
 import React from 'react';
-import { InfoContainer, InfoTitle, InfoModel } from './styledComponents';
 
 function DesignInfo({ design }) {
   return (
-    <InfoContainer>
-      <InfoTitle>{design.title}</InfoTitle>
-      <InfoModel>{design.modelName}</InfoModel>
-    </InfoContainer>
+    <div className="pb-[10px] pl-[20px]">
+      <p className="m-[5px] text-[26px] text-[#212121]">{design.title}</p>
+      <p className="m-[5px] text-base text-[#212121]">{design.modelName}</p>
+    </div>
   );
 }
 

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import './GraphicPicker.css';
 import { uploadImage } from '../../../../utils/helpers/uploadImage';
 import { convertAwsLink } from '../../../../utils/helpers/convertAwsLink';
 import CurrentGraphics from './CurrentGraphics';
@@ -115,28 +114,34 @@ function GraphicPicker({ props }) {
     <LeftInterfaceContainer>
       <InterfaceTitle>Graphics</InterfaceTitle>
       {graphicsArray && (
-        <div className="used-graphics">
+        <div className="w-full mb-4">
           <CurrentGraphics
             graphicsArray={graphicsArray}
             handleAddGraphicLayer={handleAddGraphicLayer}
           />
         </div>
       )}
-      <div className="upload-image-input">
-        <label htmlFor="image-input-id" className="upload-image-label">
-          <input
-            onChange={(e) => onFileChange(e)}
-            id="image-input-id"
-            type="file"
-            name="myImage"
-            accept="image/png, image/jpeg, .png, .jpg"
-          />
-          Upload
-        </label>
+      <div className="m-[6px]">
+        <div className="box-border border border-[#343434] rounded-[6px] bg-black p-[3px]">
+          <label 
+            htmlFor="image-input-id" 
+            className="block w-full h-[38px] box-border border border-[#343434] rounded-[3px] bg-[#f9f9f9] text-[#333333] p-0 text-base cursor-pointer flex items-center justify-center"
+          >
+            <input
+              onChange={(e) => onFileChange(e)}
+              id="image-input-id"
+              type="file"
+              name="myImage"
+              accept="image/png, image/jpeg, .png, .jpg"
+              className="hidden"
+            />
+            Upload
+          </label>
+        </div>
       </div>
 
       {warning && (
-        <div className="file-size-warning">
+        <div className="text-center text-base text-[#ff5555]">
           <p>file must be less that 2MB.</p>
         </div>
       )}

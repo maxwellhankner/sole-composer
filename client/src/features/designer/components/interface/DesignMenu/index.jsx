@@ -1,16 +1,5 @@
 import React, { useState } from 'react';
-import {
-  LeftInterfaceContainer,
-  InterfaceDoubleButtons,
-  InterfaceButtonBox,
-  InterfaceButton,
-  InterfaceTitleAndIcon,
-  InterfaceIconButtonBox,
-  InterfaceIconButton,
-  InterfaceTitleBox,
-  InterfaceTitle,
-  LoadingSpinner,
-} from '../../../ui';
+import { LoadingSpinner } from '../../../ui';
 import { Link } from 'react-router-dom';
 import { uploadImage } from '../../../utils/helpers/uploadImage';
 import { takeScreenshot } from '../../../utils/helpers/takeScreenshot';
@@ -107,65 +96,73 @@ function DesignMenu({
 
   if (loading) {
     return (
-      <LeftInterfaceContainer>
+      <div className="bg-[#212121] rounded-[9px]">
         <LoadingSpinner />
-      </LeftInterfaceContainer>
+      </div>
     );
   } else {
     return (
-      <LeftInterfaceContainer>
-        <InterfaceTitleAndIcon>
-          <InterfaceTitleBox>
-            <InterfaceTitle>{design.title}</InterfaceTitle>
-          </InterfaceTitleBox>
-          <InterfaceIconButtonBox>
-            <InterfaceIconButton
-              $active
+      <div className="bg-[#212121] rounded-[9px]">
+        <div className="flex justify-between m-[6px]">
+          <div className="h-[46px] flex flex-col justify-center">
+            <p className="text-[18px] mx-[14px] my-[10px] text-white">{design.title}</p>
+          </div>
+          <div className="box-border border border-[#343434] rounded-[6px] bg-black p-[3px] ml-[6px]">
+            <button
+              className={`box-border border rounded-[3px] w-[38px] h-[38px] p-0 text-base flex flex-col justify-center items-center ${
+                true ? 'border-[#343434] bg-[#212121] text-white' : 'border-black bg-black text-[#343434]'
+              } focus:outline-none`}
               onClick={() => handleViewChange('ChangeDesignName')}
             >
               <FaPen />
-            </InterfaceIconButton>
-          </InterfaceIconButtonBox>
-        </InterfaceTitleAndIcon>
+            </button>
+          </div>
+        </div>
 
-        <InterfaceDoubleButtons>
-          <InterfaceButtonBox onClick={() => setCameraReset(true)}>
-            <InterfaceButton $active>Reset Camera</InterfaceButton>
-          </InterfaceButtonBox>
+        <div className="grid grid-cols-2 gap-[6px] m-[6px]">
+          <div className="w-full min-w-0 box-border border border-[#343434] rounded-[6px] bg-black p-[3px]" onClick={() => setCameraReset(true)}>
+            <button className="box-border border border-[#343434] rounded-[3px] w-full h-[38px] bg-[#212121] text-white p-0 text-base focus:outline-none">
+              Reset Camera
+            </button>
+          </div>
+          
           {canSave && userData ? (
-            <InterfaceButtonBox
-              onClick={() => {
-                handleSaveDesign();
-              }}
-            >
-              <InterfaceButton $active>Save</InterfaceButton>
-            </InterfaceButtonBox>
+            <div className="w-full min-w-0 box-border border border-[#343434] rounded-[6px] bg-black p-[3px]" onClick={handleSaveDesign}>
+              <button className="box-border border border-[#343434] rounded-[3px] w-full h-[38px] bg-[#212121] text-white p-0 text-base focus:outline-none">
+                Save
+              </button>
+            </div>
           ) : (
-            <InterfaceButtonBox>
-              <InterfaceButton>Save</InterfaceButton>
-            </InterfaceButtonBox>
+            <div className="w-full min-w-0 box-border border border-[#343434] rounded-[6px] bg-black p-[3px]">
+              <button className="box-border border border-[#343434] rounded-[3px] w-full h-[38px] bg-[#212121] text-[#bbbbbb] p-0 text-base focus:outline-none">
+                Save
+              </button>
+            </div>
           )}
+          
           {userData && design.author === userId ? (
-            <InterfaceButtonBox
-              onClick={() => {
-                handleDeleteDesign();
-              }}
-            >
-              <InterfaceButton $active>Delete</InterfaceButton>
-            </InterfaceButtonBox>
+            <div className="w-full min-w-0 box-border border border-[#343434] rounded-[6px] bg-black p-[3px]" onClick={handleDeleteDesign}>
+              <button className="box-border border border-[#343434] rounded-[3px] w-full h-[38px] bg-[#212121] text-white p-0 text-base focus:outline-none">
+                Delete
+              </button>
+            </div>
           ) : (
-            <InterfaceButtonBox>
-              <InterfaceButton>Delete</InterfaceButton>
-            </InterfaceButtonBox>
+            <div className="w-full min-w-0 box-border border border-[#343434] rounded-[6px] bg-black p-[3px]">
+              <button className="box-border border border-[#343434] rounded-[3px] w-full h-[38px] bg-[#212121] text-[#bbbbbb] p-0 text-base focus:outline-none">
+                Delete
+              </button>
+            </div>
           )}
 
-          <InterfaceButtonBox>
+          <div className="w-full min-w-0 box-border border border-[#343434] rounded-[6px] bg-black p-[3px]">
             <Link to="/">
-              <InterfaceButton $active>Exit</InterfaceButton>
+              <button className="box-border border border-[#343434] rounded-[3px] w-full h-[38px] bg-[#212121] text-white p-0 text-base focus:outline-none">
+                Exit
+              </button>
             </Link>
-          </InterfaceButtonBox>
-        </InterfaceDoubleButtons>
-      </LeftInterfaceContainer>
+          </div>
+        </div>
+      </div>
     );
   }
 }

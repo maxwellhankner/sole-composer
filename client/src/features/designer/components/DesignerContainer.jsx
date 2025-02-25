@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useParams } from 'react-router-dom';
 import Scene from './scene';
-import Interface from './interface/Interface.jsx';
+import Interface from './interface/Interface';
 import {
   setup,
   designObjectToCanvasObject,
@@ -9,7 +10,6 @@ import {
   canvasObjectToTextureCanvas,
   overlayChangeManager,
 } from '../utils/canvas';
-import { DesignerContainerStyle } from './DesignerContainer.styles';
 
 function DesignerContainer({
   userData,
@@ -233,7 +233,7 @@ function DesignerContainer({
 
   if (design) {
     return (
-      <DesignerContainerStyle>
+      <div className="h-screen w-screen bg-[#f9f9f9] font-['Roboto']">
         <Scene
           design={design}
           setView={setView}
@@ -271,10 +271,14 @@ function DesignerContainer({
           setShoeVisibility={setShoeVisibility}
           setCameraReset={setCameraReset}
         />
-      </DesignerContainerStyle>
+      </div>
     );
   } else {
-    return <DesignerContainerStyle>Please wait...</DesignerContainerStyle>;
+    return (
+      <div className="h-screen w-screen bg-[#f9f9f9] font-['Roboto']">
+        Please wait...
+      </div>
+    );
   }
 }
 
