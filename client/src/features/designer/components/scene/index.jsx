@@ -4,7 +4,6 @@ import { useGLTF, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 import { LoadingSpinner } from '../../ui';
 import { partLookup } from './partLookup';
-import { SceneContainer } from './styledComponents';
 
 function Shoe({
   design,
@@ -112,8 +111,9 @@ const Scene = ({
   }
 
   return (
-    <SceneContainer id="scene-container-id">
+    <div id="scene-container-id" className="w-full aspect-square text-black flex-none overflow-hidden lg:h-screen lg:w-screen relative">
       <Canvas
+        className="absolute inset-0"
         camera={{ fov: 45 }}
         dpr={3}
         flat
@@ -163,7 +163,7 @@ const Scene = ({
         />
       </Canvas>
       {!texturesLoaded && <LoadingSpinner />}
-    </SceneContainer>
+    </div>
   );
 };
 

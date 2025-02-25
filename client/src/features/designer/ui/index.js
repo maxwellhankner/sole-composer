@@ -9,7 +9,7 @@ import {
   InterfaceIconButtonBox,
   InterfaceIconButton,
   InterfaceTitleBox,
-} from './styledComponents';
+} from './ui';
 import LoadingSpinner from './LoadingSpinner';
 import ColorPicker from './ColorPicker';
 
