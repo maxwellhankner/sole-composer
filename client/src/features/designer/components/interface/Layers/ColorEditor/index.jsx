@@ -8,7 +8,7 @@ import {
   InterfaceTitleAndIcon,
   InterfaceTitleBox,
   InterfaceTitle,
-} from '../../../../ui';
+} from '../../ui';
 import { FaCheck } from 'react-icons/fa';
 
 function ColorEditor({ props }) {

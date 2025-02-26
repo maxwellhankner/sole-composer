@@ -1,6 +1,6 @@
 import React from 'react';
 // import { FaEye } from 'react-icons/fa';
-import { InterfaceSingleButtons } from '../../../../ui';
+import { InterfaceSingleButtons } from '../../ui';
 
 function Toggle({ setCurrentShoe, visibility, setVisibility }) {
   const hanleShoeVisibility = (shoe) => {

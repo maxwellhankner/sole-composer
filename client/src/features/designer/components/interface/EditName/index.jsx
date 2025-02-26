@@ -8,7 +8,7 @@ import {
   InterfaceTitleAndIcon,
   InterfaceTitleBox,
   InterfaceTitle,
-} from '../../../ui';
+} from '../ui';
 
 function EditName({ handleViewChange, design, setDesign, setCanSave }) {
   const handleUpdateDesignName = () => {

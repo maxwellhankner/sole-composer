@@ -15,7 +15,7 @@ import {
   InterfaceDoubleButtons,
   InterfaceButton,
   InterfaceButtonBox,
-} from '../../../../../designer/ui';
+} from '../../../interface/ui';
 
 export const CustomColor = ({
   hex,

@@ -5,7 +5,7 @@ import {
   InterfaceSingleButtons,
   InterfaceButtonBox,
   InterfaceButton,
-} from '../../../../ui';
+} from '../../ui';
 
 function AddLayerType({ props }) {
   const { design, currentPartName, handleAddLayer, setLayersView } = props;

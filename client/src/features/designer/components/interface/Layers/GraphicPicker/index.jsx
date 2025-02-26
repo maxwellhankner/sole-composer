@@ -7,7 +7,9 @@ import {
   InterfaceTitle,
   InterfaceSingleButtons,
   InterfaceButtonBox,
-  InterfaceButton,
+  InterfaceButton
+} from '../../ui';
+import {
   LoadingSpinner
 } from '../../../../ui';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import Toggle from './Toggle';
-import { LeftInterfaceContainer } from '../../../ui';
+import { LeftInterfaceContainer } from '../ui';
 
 function Visibility({
   currentShoe,

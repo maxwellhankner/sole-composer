@@ -9,7 +9,7 @@ import {
   InterfaceTitle,
   InterfaceIconButtonBox,
   InterfaceIconButton,
-} from '../../../ui';
+} from '../ui';
 import { FaCheck } from 'react-icons/fa';
 
 function ChangeBaseColor({
