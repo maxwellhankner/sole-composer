@@ -5,7 +5,7 @@ import Landing from '../landing/Landing.jsx';
 import Designer from '../designer/Designer.jsx';
 import Login from '../auth/Login';
 import Profile from '../profile/Profile';
-import NoPage from '../error/NoPage';
+import NoPage from '../nopage/NoPage';
 
 function App() {
   return (
