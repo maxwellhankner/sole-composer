@@ -1,3 +1,2 @@
 export * from './button';
-export * from './typography'; 
-export * from './loading'; 
+export * from './typography';

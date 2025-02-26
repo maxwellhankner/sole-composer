@@ -7,9 +7,11 @@ import {
   InterfaceTitle,
   InterfaceSingleButtons,
   InterfaceButtonBox,
-  InterfaceButton,
-  LoadingSpinner
+  InterfaceButton
 } from '../../ui';
+import {
+  LoadingSpinner
+} from '../../../loading';
 
 function GraphicPicker({ props }) {
   const { setLayersView, handleAddLayer, design } = props;

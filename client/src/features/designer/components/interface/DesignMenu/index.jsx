@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { LoadingSpinner } from '../ui';
+import { LoadingSpinner } from '../../loading';
 import { Link } from 'react-router-dom';
 import { uploadImage } from '../../../utils/helpers/uploadImage';
 import { takeScreenshot } from '../../../utils/helpers/takeScreenshot';
