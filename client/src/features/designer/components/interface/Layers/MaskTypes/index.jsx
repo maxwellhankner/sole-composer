@@ -5,7 +5,7 @@ import {
   InterfaceSingleButtons,
   InterfaceButtonBox,
   InterfaceButton,
-} from '../../../../ui';
+} from '../../ui';
 
 function MaskTypes({ props }) {
   const { design, currentPartName, handleAddMaskLayer, setLayersView } = props;

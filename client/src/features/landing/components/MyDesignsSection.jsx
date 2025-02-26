@@ -1,5 +1,5 @@
 import React from 'react';
-import { H3 } from '../../../shared/ui/typography';
+import { H3 } from '../../landing/ui/typography';
 import MyDesigns from './MyDesigns';
 
 function MyDesignsSection({ designs }) {

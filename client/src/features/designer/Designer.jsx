@@ -8,8 +8,8 @@ import {
 } from './utils/canvas';
 import { simpleFetch } from './utils/helpers/fetchHelpers';
 import { useParams } from 'react-router-dom';
-import { useUserContext } from '../../shared/context/UserContext';
-import { P, LoadingScreen, ErrorScreen } from '../../shared/ui';
+import { useUserContext } from '../../context/UserContext';
+import { LoadingSpinner, ErrorScreen } from './components/loading';
 
 function Designer() {
   const { id } = useParams();
@@ -92,7 +92,7 @@ function Designer() {
   }, [rightTextureCanvas, leftTextureCanvas]);
 
   if (isLoading) {
-    return <LoadingScreen message="Loading user data..." />;
+    return <LoadingSpinner message="Loading Screen 1..." />;
   }
 
   if (error) {
@@ -100,7 +100,7 @@ function Designer() {
   }
 
   if (isDesignerLoading) {
-    return <LoadingScreen />;
+    return <LoadingSpinner message="Loading Screen 2..." />;
   }
 
   if (designerError) {

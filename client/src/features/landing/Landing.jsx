@@ -1,14 +1,14 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button } from '../../shared/ui/button';
+import { Button } from '../landing/ui/button';
 import { Header, Footer } from './components/ui';
 import LandingSplash from './components/LandingSplash';
 import FeaturedSection from './components/FeaturedSection';
 import MyDesignsSection from './components/MyDesignsSection';
 import { useFeaturedDesigns } from './hooks/useFeaturedDesigns';
 import { useMyDesigns } from './hooks/useMyDesigns';
-import { useUserContext } from '../../shared/context/UserContext';
-import { P } from '../../shared/ui/typography';
+import { useUserContext } from '../../context/UserContext';
+import { P } from '../landing/ui/typography';
 
 function Landing() {
   const { userData, isLoading, error } = useUserContext();

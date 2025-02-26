@@ -5,7 +5,7 @@ import PartSelector from './PartSelector';
 import {
   InterfaceIconButtonBox,
   InterfaceIconButton
-} from '../../../../ui';
+} from '../../ui';
 
 function LayersMain({ props }) {
   const {

@@ -2,7 +2,7 @@ import React, { useRef, Suspense, useEffect } from 'react';
 import { Canvas, useLoader, useThree } from '@react-three/fiber';
 import { useGLTF, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
-import { LoadingSpinner } from '../../ui';
+import { LoadingSpinner } from '../loading';
 import { partLookup } from './partLookup';
 
 function Shoe({
@@ -162,7 +162,7 @@ const Scene = ({
           enableDamping={true}
         />
       </Canvas>
-      {!texturesLoaded && <LoadingSpinner />}
+      {!texturesLoaded && <LoadingSpinner message="Scene Loading..."/>}
     </div>
   );
 };

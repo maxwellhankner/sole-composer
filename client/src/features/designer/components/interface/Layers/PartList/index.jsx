@@ -5,7 +5,7 @@ import {
   InterfaceSingleButtons,
   InterfaceButtonBox,
   InterfaceButton
-} from '../../../../ui';
+} from '../../ui';
 
 function PartList({ props }) {
   const {

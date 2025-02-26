@@ -14,7 +14,7 @@ import {
   InterfaceButtonBox,
   InterfaceButton,
   InterfaceDoubleButtons,
-} from '../../../../ui';
+} from '../../ui';
 
 function GraphicEditor({ props }) {
   const {

@@ -1,6 +1,6 @@
 import React from 'react';
 import LayerDictionary from './Constants';
-import { LeftInterfaceContainer } from '../../../ui';
+import { LeftInterfaceContainer } from '../ui';
 
 function LayersView({
   layersView,

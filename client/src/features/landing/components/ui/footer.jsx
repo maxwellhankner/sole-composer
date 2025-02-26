@@ -1,6 +1,6 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa"
-import { Button } from "../../../../shared/ui/button"
-import { H3, H4, P } from "../../../../shared/ui/typography"
+import { Button } from "../../../landing/ui/button"
+import { H3, H4, P } from "../../../landing/ui/typography"
 
 export function Footer() {
   return (

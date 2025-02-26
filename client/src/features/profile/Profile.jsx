@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useUserContext } from '../../shared/context/UserContext';
-import { P } from '../../shared/ui/typography';
-import { Button } from '../../shared/ui/button';
+import { useUserContext } from '../../context/UserContext';
+import { P } from '../landing/ui/typography';
+import { Button } from '../landing/ui/button';
 
 function Profile() {
   const { userData, isLoading, error } = useUserContext();

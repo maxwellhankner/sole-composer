@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Link } from 'react-router-dom';
-import { Button } from '../../../../shared/ui/button';
-import { useUserContext } from '../../../../shared/context/UserContext';
+import { Button } from '../../../landing/ui/button';
+import { useUserContext } from '../../../../context/UserContext';
 
 export function Header() {
   const { userData } = useUserContext();

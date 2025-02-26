@@ -7,9 +7,11 @@ import {
   InterfaceTitle,
   InterfaceSingleButtons,
   InterfaceButtonBox,
-  InterfaceButton,
+  InterfaceButton
+} from '../../ui';
+import {
   LoadingSpinner
-} from '../../../../ui';
+} from '../../../loading';
 
 function GraphicPicker({ props }) {
   const { setLayersView, handleAddLayer, design } = props;
@@ -105,7 +107,7 @@ function GraphicPicker({ props }) {
   if (isLoading) {
     return (
       <LeftInterfaceContainer>
-        <LoadingSpinner />
+        <LoadingSpinner message="Graphic Loading..."/>
       </LeftInterfaceContainer>
     );
   }

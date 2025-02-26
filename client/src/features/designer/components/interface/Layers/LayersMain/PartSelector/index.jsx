@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { handleConvertPartName } from '../../../../../utils/helpers/convertPartNames';
-import { InterfaceSingleButtons } from '../../../../../ui';
+import { InterfaceSingleButtons } from '../../../ui';
 
 function PartSelector({
   design,

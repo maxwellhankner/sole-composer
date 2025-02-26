@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { handleConvertPartName } from '../../../../utils/helpers/convertPartNames';
-import { ColorPicker } from '../../../../ui';
+import ColorPicker from '../../ui/ColorPicker';
 import {
   LeftInterfaceContainer,
   InterfaceIconButtonBox,
@@ -8,7 +8,7 @@ import {
   InterfaceTitleAndIcon,
   InterfaceTitleBox,
   InterfaceTitle,
-} from '../../../../ui';
+} from '../../ui';
 import { FaCheck } from 'react-icons/fa';
 
 function ColorEditor({ props }) {

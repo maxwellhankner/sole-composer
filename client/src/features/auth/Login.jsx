@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from '../../shared/ui/button';
-import { P } from '../../shared/ui/typography';
+import { Button } from '../landing/ui/button';
+import { P } from '../landing/ui/typography';
 
 function Login() {
   const loginWithGoogle = () => {
