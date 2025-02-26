@@ -11,7 +11,6 @@ import {
   InterfaceTitleBox,
 } from './ui';
 import LoadingSpinner from './LoadingSpinner';
-import ColorPicker from './ColorPicker';
 
 export {
   LeftInterfaceContainer,
@@ -25,5 +24,4 @@ export {
   InterfaceIconButton,
   InterfaceTitleBox,
   LoadingSpinner,
-  ColorPicker,
 };

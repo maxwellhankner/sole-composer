@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { handleConvertPartName } from '../../../../utils/helpers/convertPartNames';
-import { ColorPicker } from '../../../../ui';
+import ColorPicker from '../../ui/ColorPicker';
 import {
   LeftInterfaceContainer,
   InterfaceIconButtonBox,

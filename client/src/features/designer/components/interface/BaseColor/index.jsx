@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { cloneDeep } from 'lodash';
-import { ColorPicker } from '../../../ui';
+import ColorPicker from '../ui/ColorPicker';
 import {
   LeftInterfaceContainer,
   InterfaceSingleButtons,

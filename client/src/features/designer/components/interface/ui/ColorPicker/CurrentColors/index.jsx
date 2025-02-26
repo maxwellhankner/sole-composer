@@ -1,5 +1,5 @@
 import React from 'react';
-import { InterfaceButtonBox } from '../../';
+import { InterfaceButtonBox } from '../../../../../../designer/ui';
 
 function CurrentColors({ colorsArray, handleColorChange }) {
   return (
