@@ -10,3 +10,5 @@ export {
   InterfaceIconButton,
   InterfaceTitleBox,
 } from './ui';
+
+export { default as LoadingSpinner } from './LoadingSpinner';
