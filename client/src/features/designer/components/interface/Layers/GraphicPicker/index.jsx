@@ -105,7 +105,7 @@ function GraphicPicker({ props }) {
   if (isLoading) {
     return (
       <LeftInterfaceContainer>
-        <LoadingSpinner />
+        <LoadingSpinner message="Graphic Loading..."/>
       </LeftInterfaceContainer>
     );
   }

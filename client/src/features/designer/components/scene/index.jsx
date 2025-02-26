@@ -162,7 +162,7 @@ const Scene = ({
           enableDamping={true}
         />
       </Canvas>
-      {!texturesLoaded && <LoadingSpinner />}
+      {!texturesLoaded && <LoadingSpinner message="Scene Loading..."/>}
     </div>
   );
 };

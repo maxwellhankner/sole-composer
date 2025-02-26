@@ -97,7 +97,7 @@ function DesignMenu({
   if (loading) {
     return (
       <div className="bg-[#212121] rounded-[9px]">
-        <LoadingSpinner />
+        <LoadingSpinner message="Menu Loading..."/>
       </div>
     );
   } else {

@@ -92,7 +92,7 @@ function Designer() {
   }, [rightTextureCanvas, leftTextureCanvas]);
 
   if (isLoading) {
-    return <LoadingScreen message="Loading user data..." />;
+    return <LoadingScreen message="Loading Screen 1..." />;
   }
 
   if (error) {
@@ -100,7 +100,7 @@ function Designer() {
   }
 
   if (isDesignerLoading) {
-    return <LoadingScreen />;
+    return <LoadingScreen message="Loading Screen 2..." />;
   }
 
   if (designerError) {
