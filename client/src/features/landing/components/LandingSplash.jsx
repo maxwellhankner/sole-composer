@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button } from '../../../shared/ui/button';
-import { H1, P } from '../../../shared/ui/typography';
+import { Button } from '../../landing/ui/button';
+import { H1, P } from '../../landing/ui/typography';
 import { useNavigate } from 'react-router-dom';
 import soleCover from '../../../assets/sole-cover.png';
 

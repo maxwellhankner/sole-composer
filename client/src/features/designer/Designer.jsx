@@ -8,7 +8,7 @@ import {
 } from './utils/canvas';
 import { simpleFetch } from './utils/helpers/fetchHelpers';
 import { useParams } from 'react-router-dom';
-import { useUserContext } from '../../shared/context/UserContext';
+import { useUserContext } from '../../context/UserContext';
 import { LoadingSpinner, ErrorScreen } from './components/loading';
 
 function Designer() {

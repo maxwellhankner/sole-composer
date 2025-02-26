@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import UserProvider from '../../shared/context/UserContext.jsx';
+import UserProvider from '../../context/UserContext.jsx';
 import Landing from '../landing/Landing.jsx';
 import Designer from '../designer/Designer.jsx';
 import Login from '../auth/Login';
