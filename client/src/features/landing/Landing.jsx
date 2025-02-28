@@ -5,6 +5,7 @@ import { Header, Footer } from './components/ui';
 import LandingSplash from './components/LandingSplash';
 import FeaturedSection from './components/FeaturedSection';
 import MyDesignsSection from './components/MyDesignsSection';
+import AboutSection from './components/AboutSection';
 import { useFeaturedDesigns } from './hooks/useFeaturedDesigns';
 import { useMyDesigns } from './hooks/useMyDesigns';
 import { useUserContext } from '../../context/UserContext';
@@ -43,6 +44,8 @@ function Landing() {
 
             <MyDesignsSection designs={myDesigns} />
           </div>
+
+          <AboutSection />
         </>
       )}
 
